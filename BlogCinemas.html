@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog dos Cinemas | Portal TV Cultura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['Share Tech Mono', 'monospace'],
+                    },
+                    colors: {
+                        cultura: {
+                            teal: '#0a4855',
+                            red: '#f04e23',
+                            grayDark: '#4a4a4a',
+                            grayLight: '#f4f7f6',
+                            textDark: '#2c2c2c',
+                            cyan: '#00b4a6'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Padrão visual do portal TV Cultura */
+        .tv-cultura-logo-c {
+            background-color: #f04e23;
+            position: relative;
+        }
+        .tv-cultura-logo-c::after {
+            content: '';
+            position: absolute;
+            top: 25%;
+            left: 30%;
+            width: 40%;
+            height: 50%;
+            border: 4px solid white;
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+        }
+    </style>
+</head>
+<body class="bg-white text-cultura-textDark font-sans antialiased">
+
+    <!-- 1. BARRA FUNDAÇÃO PADRE ANCHIETA (CINZA ESCURO) -->
+    <div class="w-full bg-cultura-grayDark text-gray-300 text-[10px] font-bold tracking-wider py-2">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <!-- Dropdown Fundação -->
+            <button onclick="alert('Fundação Padre Anchieta - Canal de Acessibilidade e Transparência.')" class="flex items-center gap-1.5 hover:text-white uppercase font-sans">
+                FUNDAÇÃO PADRE ANCHIETA 
+                <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+            </button>
+            
+            <!-- Redes Sociais do Portal -->
+            <div class="flex items-center space-x-3.5">
+                <a href="#" class="hover:text-white"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3l-.5 3h-2.5v6.8c4.56-.93 8-4.96 8-9.8z"/></svg></a>
+                <a href="#" class="hover:text-white"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+                <a href="#" class="hover:text-white"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                <a href="#" class="hover:text-white"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.163c-.272-1.216-1.14-2.197-2.3-2.399C19.1 3.5 12 3.5 12 3.5s-7.1 0-9.198.264c-1.16.202-2.028 1.183-2.3 2.399C.2 8.563 0 12 0 12s.2 3.437.502 4.837c.272 1.216 1.14 2.197 2.3 2.399C4.9 19.5 12 19.5 12 19.5s7.1 0 9.198-.264c1.16-.202 2.028-1.183 2.3-2.399.302-1.4.502-4.837.502-4.837s-.2-3.437-.502-4.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. CABEÇALHO DA TV CULTURA (AZUL PETRÓLEO) -->
+    <header class="w-full bg-cultura-teal text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 flex items-center h-20">
+            <!-- Logo Icon TV Cultura -->
+            <a href="SiteCinema.html" class="flex items-center gap-4 mr-10 cursor-pointer shrink-0">
+                <div class="w-14 h-14 bg-cultura-red rounded relative flex items-center justify-center shadow-md">
+                    <!-- Vetor do 'C' clássico da Cultura -->
+                    <span class="text-white font-black text-3xl italic tracking-tighter uppercase relative -left-0.5">C</span>
+                    <div class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-white animate-pulse"></div>
+                </div>
+                <div class="flex flex-col justify-center leading-none uppercase font-black tracking-widest text-sm">
+                    <span class="text-white">TV CULTURA</span>
+                    <span class="text-cultura-cyan text-[9px] mt-0.5">Audiovisual</span>
+                </div>
+            </a>
+
+            <!-- Menu de Notícias e Editorias -->
+            <nav class="hidden lg:flex space-x-6 text-[11px] font-extrabold uppercase tracking-wider text-gray-200">
+                <a id="nav-aovivo" href="javascript:void(0)" onclick="switchView('aovivo')" class="hover:text-cultura-cyan transition">AO VIVO</a>
+                <a id="nav-radio" href="javascript:void(0)" onclick="switchView('radio')" class="hover:text-cultura-cyan transition">Rádio</a>
+                <a id="nav-noticias" href="javascript:void(0)" onclick="switchView('noticias')" class="text-cultura-cyan hover:text-white transition">Notícias</a>
+                <a id="nav-esporte" href="javascript:void(0)" onclick="switchView('esporte')" class="hover:text-cultura-cyan transition">Esporte</a>
+                <a id="nav-entretenimento" href="javascript:void(0)" onclick="switchView('entretenimento')" class="hover:text-cultura-cyan transition">Entretenimento</a>
+                <a id="nav-jazz" href="javascript:void(0)" onclick="switchView('jazz')" class="hover:text-cultura-cyan transition">Jazz Sinfônica</a>
+                <a id="nav-programas" href="javascript:void(0)" onclick="switchView('programas')" class="hover:text-cultura-cyan transition">Programas</a>
+                <a id="nav-grade" href="javascript:void(0)" onclick="switchView('grade')" class="hover:text-cultura-cyan transition">Grade</a>
+                <a id="nav-podcasts" href="javascript:void(0)" onclick="switchView('podcasts')" class="hover:text-cultura-cyan transition">Podcasts</a>
+            </nav>
+
+            <!-- Mobile Navigation Button -->
+            <button onclick="toggleMobileMenu()" class="lg:hidden ml-auto text-white focus:outline-none p-2 hover:text-cultura-cyan transition">
+                <svg class="w-6 h-6 fill-none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="hamburger-icon" d="M4 6h16M4 12h16M4 18h16" stroke-width="2.5" stroke-linecap="round"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE DROPDOWN MENU -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-cultura-teal border-t border-white/10 py-4 px-4 text-xs font-extrabold uppercase tracking-wider text-gray-200 flex flex-col space-y-3.5 shadow-xl transition-all duration-300">
+        <a id="nav-mob-aovivo" href="javascript:void(0)" onclick="switchView('aovivo')" class="hover:text-cultura-cyan transition py-1 border-b border-white/5 pb-1">AO VIVO</a>
+        <a id="nav-mob-radio" href="javascript:void(0)" onclick="switchView('radio')" class="hover:text-cultura-cyan transition py-1 border-b border-white/5 pb-1">Rádio</a>
+        <a id="nav-mob-noticias" href="javascript:void(0)" onclick="switchView('noticias')" class="text-cultura-cyan hover:text-white transition py-1 border-b border-white/5 pb-1">Notícias</a>
+        <a id="nav-mob-esporte" href="javascript:void(0)" onclick="switchView('esporte')" class="hover:text-cultura-cyan transition py-1 border-b border-white/5 pb-1">Esporte</a>
+        <a id="nav-mob-entretenimento" href="javascript:void(0)" onclick="switchView('entretenimento')" class="hover:text-cultura-cyan transition py-1 border-b border-white/5 pb-1">Entretenimento</a>
+        <a id="nav-mob-jazz" href="javascript:void(0)" onclick="switchView('jazz')" class="hover:text-cultura-cyan transition py-1 border-b border-white/5 pb-1">Jazz Sinfônica</a>
+        <a id="nav-mob-programas" href="javascript:void(0)" onclick="switchView('programas')" class="hover:text-cultura-cyan transition py-1 border-b border-white/5 pb-1">Programas</a>
+        <a id="nav-mob-grade" href="javascript:void(0)" onclick="switchView('grade')" class="hover:text-cultura-cyan transition py-1 border-b border-white/5 pb-1">Grade</a>
+        <a id="nav-mob-podcasts" href="javascript:void(0)" onclick="switchView('podcasts')" class="hover:text-cultura-cyan transition py-1">Podcasts</a>
+    </div>
+
+    <!-- 3. BANNER SUPERIOR ANÚNCIO (ADOBE CREATIVE CLOUD) -->
+    <div class="w-full bg-[#f4f7f6] py-6 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 flex justify-center">
+            <!-- Réplica de Banner Publicitário -->
+            <div class="max-w-4xl w-full bg-white rounded-lg border border-gray-300 shadow-sm p-4 flex flex-col md:flex-row items-center justify-between gap-4 relative overflow-hidden">
+                <div class="absolute top-2 right-2 text-[8px] font-mono text-gray-400">Patrocinado</div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded bg-gradient-to-tr from-pink-500 via-red-500 to-yellow-500 flex items-center justify-center text-white font-black text-xs shrink-0">Ai/Ps</div>
+                    <div>
+                        <h5 class="font-extrabold text-xs uppercase tracking-wider text-gray-800 leading-tight">Crie, edite e publique com apps que trabalham juntos.</h5>
+                        <p class="text-[10px] text-gray-500 font-medium">Plano Pro com desconto especial para estudantes de Audiovisual.</p>
+                    </div>
+                </div>
+                <a href="#" class="bg-gray-900 text-white font-bold text-[10px] font-mono uppercase tracking-widest px-4 py-2 rounded hover:bg-gray-700 transition shrink-0">Compre Agora</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. CONTEÚDO PRINCIPAL (MATÉRIA JORNALÍSTICA) -->
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        <div id="materia-viewport" class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Coluna Esquerda: A Matéria Escrita (70% no desktop) -->
+            <article class="lg:col-span-8 flex flex-col">
+                <!-- Seção / Editoria -->
+                <span id="news-tag" class="text-cultura-red font-mono text-xs font-black uppercase tracking-widest mb-3">ENTRETENIMENTO</span>
+                
+                <!-- 1. A ABERTURA (Manchete e Linha Fina) -->
+                <h1 id="news-manchete" class="text-4xl md:text-5xl font-serif font-black text-gray-900 leading-tight mb-4">
+                    Cine Marquise celebra 63 anos de resistência cultural na Avenida Paulista
+                </h1>
+                <p id="news-linhafina" class="text-lg text-gray-500 font-medium leading-relaxed mb-6 border-b border-gray-100 pb-6">
+                    Estagiária da TV Cultura, Natty Pilho, investiga como a tradicional sala do Conjunto Nacional renasceu em meio a crises para liderar a cena cult de São Paulo.
+                </p>
+
+                <!-- Autoria e Data -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs text-gray-500 font-semibold mb-8">
+                    <div>
+                        <span class="font-bold text-gray-800">Da Redação</span> • Por <span id="news-author" class="font-extrabold text-cultura-teal">Natty Pilho</span>
+                        <div class="text-[10px] text-gray-400 font-mono mt-0.5" id="news-date">23/05/2026 15h11</div>
+                    </div>
+                    
+                    <!-- Botões de Compartilhamento Social -->
+                    <div class="flex items-center gap-2">
+                        <button onclick="alert('Link copiado para a área de transferência!')" class="p-2 rounded bg-gray-100 hover:bg-gray-200 transition text-gray-600" title="Compartilhar"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"/></svg></button>
+                        <button class="px-3 py-2 rounded bg-[#25D366] text-white flex items-center gap-1 font-bold text-[10px] tracking-wider uppercase" onclick="alert('Compartilhando no WhatsApp...')"><span>WhatsApp</span></button>
+                    </div>
+                </div>
+
+                <!-- 3. O RIGOR TÉCNICO (Registro Visual / Foto Reativa) -->
+                <div class="w-full relative rounded-xl overflow-hidden shadow-xl border border-gray-200 mb-8 bg-black">
+                    <img id="news-photo" src="https://images.unsplash.com/photo-1595769816263-9b910be24d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Fachada" class="w-full h-auto object-cover opacity-95">
+                    <!-- Marca d'água de créditos na tela de forma rígida -->
+                    <div id="news-photo-credits" class="absolute bottom-3 right-3 bg-black/80 border border-white/10 px-3 py-1 rounded text-[9px] font-mono text-gray-300 tracking-wider backdrop-blur-sm shadow-md">
+                        Foto: Nadja Kouchi / Acervo TV Cultura
+                    </div>
+                </div>
+
+                <!-- 2. O DESENVOLVIMENTO (Memorial Descritivo / Matéria) -->
+                <div class="prose max-w-none text-gray-800 leading-relaxed text-sm md:text-base space-y-6 font-medium">
+                    
+                    <!-- Selo de Abertura -->
+                    <div class="bg-cultura-grayLight border-l-4 border-cultura-teal p-5 rounded-r-lg mb-6">
+                        <span id="news-selo" class="block font-mono text-[9px] font-black tracking-widest text-cultura-teal uppercase mb-1">CULTURA LIVRE / ARQUIVOS URBANOS</span>
+                        <p id="news-apresentacao" class="text-xs italic text-gray-600 font-semibold leading-relaxed">
+                            "Hoje, o programa Cultura Livre visita o coração do Conjunto Nacional na Avenida Paulista para desvendar a resistência do Cine Marquise, espaço que preserva o audiovisual vivo na capital."
+                        </p>
+                        <!-- Gancho Conceitual -->
+                        <p id="news-gancho" class="text-xs font-bold text-cultura-red mt-2 tracking-wide uppercase">
+                            Gancho: Um refúgio dourado de celuloide no asfalto frenético da Paulista.
+                        </p>
+                    </div>
+
+                    <!-- Bloco de Contexto -->
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 font-serif uppercase tracking-tight">O Momento de Renascimento</h3>
+                        <p id="news-contexto" class="text-gray-700">
+                            Após o fechamento forçado durante o período de pandemia em 2020, o espaço ressurgiu totalmente renovado em 2021 pela Spcine e parcerias estratégicas. A TV Cultura investigou como essa reabertura consolidou a sala como ponto indispensável na cena cult paulistana.
+                        </p>
+                    </div>
+
+                    <!-- A Execução Prática (O Detalhamento) -->
+                    <div class="bg-gray-50 border border-gray-200 p-6 rounded-xl relative my-6">
+                        <h3 class="text-base font-bold text-cultura-teal mb-3 uppercase tracking-wider font-mono">Infraestrutura e Programação</h3>
+                        <p id="news-execucao" class="text-xs md:text-sm text-gray-600 leading-relaxed">
+                            O espaço combina conforto extremo com alta fidelidade tecnológica. A curadoria é feita de exibições que variam entre festivais independentes e mostras nacionais renomadas, sob o som imersivo Dolby Atmos e poltronas ergonômicas de veludo vermelho.
+                        </p>
+                    </div>
+
+                    <!-- Bloco de Autoridade (O Histórico) -->
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 font-serif uppercase tracking-tight">Cena de Arquivo: O Legado Histórico</h3>
+                        <p id="news-autoridade" class="text-gray-700 leading-relaxed">
+                            Fundado originalmente em 1963 com o nome de Cine Rio, o espaço atravessou as transformações urbanas mais agressivas de São Paulo, incluindo o trágico incêndio do Conjunto Nacional em 1978. Renomeado ao longo dos anos para CineArte Um e Cine Livraria Cultura, o espaço representa a maior resistência do cinema de calçada na capital.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- 4. O ENCERRAMENTO (Chamada Transmídia / CTA) -->
+                <div class="bg-cultura-teal text-white rounded-xl p-8 shadow-xl border border-white/10 my-10 relative overflow-hidden flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-white/5 rounded-full blur-2xl"></div>
+                    
+                    <div class="text-left max-w-xl relative z-10">
+                        <span class="font-mono text-[9px] font-black tracking-widest text-cultura-cyan uppercase block mb-1">CONTEÚDO BÔNUS TRANSMÍDIA</span>
+                        <h4 class="text-xl font-serif font-black uppercase mb-2">Explore a Cartografia Completa dos Cinemas de Rua</h4>
+                        <p class="text-xs text-gray-300 leading-relaxed font-medium">Esta reportagem faz parte do acervo documental de Natty Pilho. Acesse o mapeamento dinâmico urbano, a rota de acesso em tempo real no GPS e registre suas memórias no mural afetivo.</p>
+                    </div>
+                    
+                    <a href="SiteCinema.html" class="bg-white text-cultura-teal font-extrabold text-[10px] font-mono py-3.5 px-6 rounded hover:bg-cultura-cyan hover:text-white transition duration-300 uppercase tracking-widest shrink-0 relative z-10 shadow-lg">
+                        Mapeamento Completo →
+                    </a>
+                </div>
+
+                <!-- Créditos Finais -->
+                <div class="border-t border-gray-200 pt-6 mt-4 mb-8 text-[9px] font-mono text-gray-400 font-extrabold uppercase tracking-widest flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <span id="news-creditos">Natty Pilho • Roteiro e Locução TV Cultura</span>
+                    <span>Fundação Padre Anchieta • TV CULTURA 2026</span>
+                </div>
+
+            </article>
+
+            <!-- Coluna Direita: Banners Laterais, Destaques, Últimas Notícias (30% no desktop) -->
+            <aside class="lg:col-span-4 flex flex-col gap-10">
+                
+                <!-- BANNER LATERAL VERTICAL (CRESOL) -->
+                <div class="w-full bg-[#fdfdfd] border border-gray-200 rounded-xl p-6 shadow-sm flex flex-col items-center text-center relative overflow-hidden group">
+                    <div class="absolute top-2 right-2 text-[8px] font-mono text-gray-300">Anúncio</div>
+                    <div class="w-20 h-20 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-500 font-black text-2xl mb-4 group-hover:scale-110 transition duration-300">C</div>
+                    <h4 class="font-extrabold text-sm uppercase text-gray-800 tracking-wider mb-2">Em todos os momentos, a Cresol te apoia.</h4>
+                    <p class="text-[10px] text-gray-500 mb-6 font-medium leading-relaxed">Cooperativa de crédito sólida com soluções sob medida para sua carreira acadêmica e audiovisual.</p>
+                    <a href="#" class="bg-orange-500 text-white font-extrabold text-[10px] font-mono uppercase tracking-widest py-3 px-6 rounded hover:bg-orange-600 transition shadow-md w-full">Clique e Saiba Mais</a>
+                </div>
+
+                <!-- BLOCO DE DESTAQUES -->
+                <div class="border border-gray-200 rounded-xl p-6 shadow-sm bg-white">
+                    <h3 class="font-extrabold text-sm text-gray-900 border-b-2 border-cultura-red pb-2 mb-6 uppercase tracking-wider font-mono">Destaques</h3>
+                    
+                    <div id="destaques-list" class="flex flex-col gap-6">
+                        <!-- Gerado dinamicamente via JS -->
+                    </div>
+                </div>
+
+                <!-- BLOCO DE ÚLTIMAS NOTÍCIAS -->
+                <div class="border border-gray-200 rounded-xl p-6 shadow-sm bg-white">
+                    <h3 class="font-extrabold text-sm text-gray-900 border-b-2 border-cultura-teal pb-2 mb-6 uppercase tracking-wider font-mono">Últimas Notícias</h3>
+                    
+                    <div id="ultimas-list" class="flex flex-col gap-6">
+                        <!-- Gerado dinamicamente via JS -->
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+
+        <!-- VIRTUAL VIEWPORT (DYNAMICALLY INJECTED SUBPAGES) -->
+        <div id="virtual-viewport" class="hidden min-h-[50vh] transition-all duration-500 opacity-0 translate-y-4">
+            <!-- Simulated sub-page content will be loaded here -->
+        </div>
+    </main>
+
+    <!-- 5. RODAPÉ INSTITUCIONAL AZUL CLARO (FUNDAÇÃO PADRE ANCHIETA) -->
+    <footer class="bg-cultura-grayLight text-cultura-teal border-t border-gray-200 pt-16">
+        <div class="max-w-7xl mx-auto px-4 pb-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-xs font-semibold">
+                
+                <!-- Coluna 1: Fundação Padre Anchieta -->
+                <div class="flex flex-col">
+                    <h4 class="font-black text-sm uppercase text-cultura-teal tracking-wider mb-6">FUNDAÇÃO PADRE ANCHIETA</h4>
+                    <div class="grid grid-cols-1 gap-2.5 text-gray-500">
+                        <a href="#" class="hover:text-cultura-red transition">Central de Relacionamento</a>
+                        <a href="#" class="hover:text-cultura-red transition">Cobertura</a>
+                        <a href="#" class="hover:text-cultura-red transition">Comercial</a>
+                        <a href="#" class="hover:text-cultura-red transition">Conselho Curador</a>
+                        <a href="#" class="hover:text-cultura-red transition">Editais</a>
+                        <a href="#" class="hover:text-cultura-red transition">Portal da Transparência</a>
+                        <a href="#" class="hover:text-cultura-red transition">Canal de Ética</a>
+                        <a href="#" class="hover:text-cultura-red transition">Trabalhe Conosco</a>
+                        <a href="#" class="hover:text-cultura-red transition">Diretoria estatutária</a>
+                        <a href="#" class="hover:text-cultura-red transition">Programação Musical - Planilhas</a>
+                        <a href="#" class="hover:text-cultura-red transition">Jazz Sinfônica</a>
+                        <a href="#" class="hover:text-cultura-red transition">Aviso de Privacidade</a>
+                        <a href="#" class="hover:text-cultura-red transition">Termos e Condições do site</a>
+                    </div>
+                </div>
+
+                <!-- Coluna 2: Televisão -->
+                <div class="flex flex-col">
+                    <h4 class="font-black text-sm uppercase text-cultura-teal tracking-wider mb-6">TELEVISÃO</h4>
+                    <div class="grid grid-cols-1 gap-2.5 text-gray-500">
+                        <a href="#" class="hover:text-cultura-red transition">TV Cultura</a>
+                        <a href="#" class="hover:text-cultura-red transition">TV Rá-Tim-Bum</a>
+                        <a href="#" class="hover:text-cultura-red transition">Univesp TV</a>
+                    </div>
+                </div>
+
+                <!-- Coluna 3: Rádio -->
+                <div class="flex flex-col">
+                    <h4 class="font-black text-sm uppercase text-cultura-teal tracking-wider mb-6">RÁDIO</h4>
+                    <div class="grid grid-cols-1 gap-2.5 text-gray-500">
+                        <a href="#" class="hover:text-cultura-red transition">Cultura FM</a>
+                        <a href="#" class="hover:text-cultura-red transition">Cultura Brasil</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Copyright Footer FPA (Cinza Escuro) -->
+        <div class="w-full bg-[#555555] text-white text-[10px] font-mono tracking-wider font-extrabold text-center py-4 border-t border-gray-600">
+            ©1996 - 2026 Fundação Padre Anchieta
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT: CONTROLE DINÂMICO E REATIVO DO BLOG -->
+    <script>
+        // BASE DE REPORTAGENS AUDIOVISUAIS NO PADRÃO TV CULTURA
+        const reportagens = [
+            {
+                id: "marquise",
+                cinemaId: "marquise",
+                tag: "ENTRETENIMENTO",
+                manchete: "Cine Marquise celebra 63 anos de resistência cultural na Avenida Paulista",
+                linhafina: "Estagiária da TV Cultura, Natty Pilho, investiga como a tradicional sala do Conjunto Nacional renasceu em meio a crises para liderar a cena cult de São Paulo.",
+                author: "Natty Pilho",
+                date: "23/05/2026 15h11",
+                photo: "https://images.unsplash.com/photo-1595769816263-9b910be24d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                photoCredits: "Foto: Nadja Kouchi / Acervo TV Cultura",
+                selo: "CULTURA LIVRE / ARQUIVOS URBANOS",
+                apresentacao: "\"Hoje, o programa Cultura Livre visita o coração do Conjunto Nacional na Avenida Paulista para desvendar a resistência do Cine Marquise, espaço que preserva o audiovisual vivo na capital.\"",
+                gancho: "Gancho: Um refúgio dourado de celuloide no asfalto frenético da Paulista.",
+                contexto: "Após o fechamento forçado durante o período de pandemia em 2020, o espaço ressurgiu totalmente renovado em 2021 pela Spcine e parcerias estratégicas. A TV Cultura investigou como essa reabertura consolidou a sala como ponto indispensável na cena cult paulistana, provendo aos cinéfilos paulistas tanto exibições independentes quanto blockbusters de alta qualidade artística.",
+                execucao: "O espaço combina conforto extremo com alta fidelidade tecnológica. A curadoria é feita de exibições que variam entre festivais independentes e mostras nacionais renomadas, sob o som imersivo Dolby Atmos, projetores de alta fidelidade e poltronas ergonômicas de veludo vermelho.",
+                autoridade: "Fundado originalmente em 1963 com o nome de Cine Rio, o espaço atravessou as transformações urbanas mais agressivas de São Paulo, incluindo o trágico incêndio do Conjunto Nacional em 1978. Renomeado ao longo dos anos para CineArte Um e Cine Livraria Cultura, o espaço representa a maior resistência do cinema de calçada na capital paulista.",
+                creditos: "Natty Pilho • Roteiro e Relações de Produção TV Cultura"
+            },
+            {
+                id: "sesc",
+                cinemaId: "sesc",
+                tag: "CULTURA",
+                manchete: "O templo do cinema independente: A história viva do CineSesc na Augusta",
+                linhafina: "Inaugurado em 1979, o espaço resiste como ponto de encontro democrático de cinéfilos paulistanos e bacia de debate para grandes obras nacionais.",
+                author: "Natty Pilho",
+                date: "24/05/2026 11h24",
+                photo: "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                photoCredits: "Foto: Acervo CineSesc / TV Cultura",
+                selo: "METRÓPOLIS / PATRIMÔNIO AUDIOVISUAL",
+                apresentacao: "\"Nesta edição especial de memória urbana, a TV Cultura traça o perfil do CineSesc, cinema que transformou a efervescência da Rua Augusta em templo indisputável de arte.\"",
+                gancho: "Gancho: A sala de calçada que ensinou gerações inteiras de São Paulo a debater cinema.",
+                contexto: "O CineSesc é considerado a curadoria mais coerente do circuito nacional de cinemas de rua. Ao prover ingressos acessíveis e gratuidades a trabalhadores de baixa renda, a instituição preserva a vocação do centro de SP como agregador social e cultural.",
+                execucao: "Mais que exibições físicas, a infraestrutura abriga o clássico bar integrado - palco de debates inflamados após as mostras -, poltronas suntuosas de alta ergonomia e a plataforma Sesc Digital, que democratiza o acesso a curadorias premiadas em todo o país.",
+                autoridade: "Antes do CineSesc fincar raízes em setembro de 1979, o edifício na Rua Augusta abrigou as iniciativas do antigo Cine Orly de 1969 e do Cinema 1 de 1975. Sob a aquisição do Sesc, o templo consolidou-se através de quatro décadas, recebendo premiações constantes por sua contribuição definitiva à cena urbana de calçada.",
+                creditos: "Natty Pilho • Pesquisa e Roteiro de Acervo TV Cultura"
+            },
+            {
+                id: "belas-artes",
+                cinemaId: "belas-artes",
+                tag: "CINEMA DE RUA",
+                manchete: "Cine Petra Belas Artes: A épica lenda de resistência da Consolação",
+                linhafina: "Estagiária da TV Cultura reconstrói a trajetória da sala que sobreviveu à especulação imobiliária graças à vigilância feroz da mobilização popular.",
+                author: "Natty Pilho",
+                date: "25/05/2026 09h40",
+                photo: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                photoCredits: "Foto: Petra Belas Artes / Arquivo FPA",
+                selo: "CULTURA DOCUMENTÁRIOS / RESISTÊNCIA DE SP",
+                apresentacao: "\"O Belas Artes é mais que um cinema; é um bastião cultural onde a população montou guarda contra a especulação imobiliária. Entenda como o templo da Consolação vive.\"",
+                gancho: "Gancho: O marco afetivo onde a paixão do cinéfilo venceu as britadeiras do capital imobiliário.",
+                contexto: "O Belas Artes é conhecido pela tradicional sessão do Noitão, mostras contínuas de arte e sua independência em termos de curadoria. Atualmente preservado por tombamento histórico e lei de fomento cultural.",
+                execucao: "Com seis salas batizadas em homenagem a grandes cineastas (como Hector Babenco e Mario de Andrade), o espaço promove sessões madrugada adentro, unindo o clássico cheiro de pipoca com debates profundos e café integrado.",
+                autoridade: "Fundado em 1943 como Cine Ritz, o espaço tornou-se Belas Artes em 1967. Sofreu um trágico incêndio em 1980, resistiu a anos de abandono e a um emblemático processo de despejo e demolição em 2011, revertido por decreto de utilidade pública e massiva mobilização popular.",
+                creditos: "Natty Pilho • Produção Executiva e Roteiro TV Cultura"
+            },
+            {
+                id: "marrocos",
+                cinemaId: "marrocos",
+                tag: "ESPECIAL",
+                manchete: "De palácio suntuoso a abrigo social: A marcante jornada do Cine Marrocos",
+                linhafina: "A TV Cultura documenta a metamorfose do mais luxuoso cinema da América Latina e o poético resgate de suas ruínas projetado por Ricardo Calil.",
+                author: "Natty Pilho",
+                date: "25/05/2026 16h45",
+                photo: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                photoCredits: "Foto: Ricardo Calil / Divulgação Documentário",
+                selo: "CÓPIA CONTROLADA / ARQUIVOS CULTURAIS",
+                apresentacao: "\"Nesta edição histórica, investigamos o Cine Marrocos, o majestoso colosso das Mil e Uma Noites na Rua Conselheiro Crispiniano, e sua transformação social.\"",
+                gancho: "Gancho: O templo de mármore dourado onde as vozes dos sem-teto deram voz ao passado esquecido.",
+                contexto: "O fechamento do palácio de projeções em 1994 marcou a decadência do centro expandido de São Paulo. Em 2013, o edifício abandonado foi ocupado por centenas de famílias sem-teto e refugiados, gerando um encontro entre o luxo arquitetônico e a luta por moradia digna.",
+                execucao: "O documentário de 2019 de Ricardo Calil retratou o momento em que a antiga sala de projeções trancada foi reaberta pela ocupação. Os novos moradores interpretaram cenas dos clássicos exibidos no festival de 1954, resgatando a essência dramática do local.",
+                autoridade: "Inaugurado em 25 de janeiro de 1951, o Cine Marrocos ostentava escadarias imponentes de mármore e uma suntuosa fonte luminosa. Em 1954, sediou o emblemático Primeiro Festival Internacional de Cinema do Brasil, recebendo estrelas de Hollywood. Hoje desativado, permanece como marco de reflexão urbana.",
+                creditos: "Natty Pilho • Edição de Roteiro e Acervo TV Cultura"
+            },
+            {
+                id: "ipiranga",
+                cinemaId: "ipiranga",
+                tag: "PATRIMÔNIO",
+                manchete: "Silêncio no Centro: O clamor arquitetônico do Cine Ipiranga",
+                linhafina: "Projetada em 1943 por Rino Levi, a obra-prima da arquitetura modernista aguarda o resgate de sua dignidade na antiga Cinelândia.",
+                author: "Natty Pilho",
+                date: "26/05/2026 10h12",
+                photo: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                photoCredits: "Foto: Acervo SMC SP / Arquivo FPA",
+                selo: "ARQUITETURA URBANA SP / TEMPLOS DE CALÇADA",
+                apresentacao: "\"A TV Cultura adentra o colossal foyer flutuante trancado do Cine Ipiranga para resgatar a acústica revolucionária e o design monumental do gigante de Rino Levi.\"",
+                gancho: "Gancho: O imponente gigante modernista que adormeceu com os sussurros da Cinelândia Paulista.",
+                contexto: "Desativado como cinema comercial em 2005 após o declínio de público, o edifício de alto valor arquitetônico é tombado pela municipalidade e aguarda projetos sustentáveis de reativação cultural para o centro expandido.",
+                execucao: "Rino Levi projetou uma sala com acústica de engenharia ímpar, isolamentos acústicos inovadores e foyer monumental com jardins, promovendo um layout que forjou a elegância da arquitetura modernista paulistana.",
+                autoridade: "Inaugurado no auge da Cinelândia Paulista em 1943 na Avenida Ipiranga, o cinema dominava a cena cultural ao lado de grandes salas monumentais, sendo símbolo de status social e efervescência intelectual urbana.",
+                creditos: "Natty Pilho • Pesquisa e Acervo Arquitetônico TV Cultura"
+            },
+            {
+                id: "windsor",
+                cinemaId: "windsor",
+                tag: "MEMÓRIA",
+                manchete: "A era das megasalas monumentais: O legado histórico do Cine Windsor",
+                linhafina: "A TV Cultura resgata a memória do colossal Windsor, sala de 1.500 lugares que marcou o auge comercial do centro expandido de SP.",
+                author: "Natty Pilho",
+                date: "26/05/2026 14h50",
+                photo: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                photoCredits: "Foto: Memória Paulista / Arquivo FPA",
+                selo: "CULTURA MEMÓRIA / HISTÓRIA URBANA",
+                apresentacao: "\"Relembramos o tempo em que o exibicionismo comercial de São Paulo era medido em milhares de assentos suntuosos, revisitando a história do Cine Windsor.\"",
+                gancho: "Gancho: A colossal tela de projeção que abraçou a modernização e o progresso da capital paulista.",
+                contexto: "O declínio do Cine Windsor e sua conversão comercial nos anos 80 exemplificam a rápida migração do consumo de cinema para os shoppings centers, esvaziando as grandes salas de rua.",
+                execucao: "O Windsor oferecia uma gigantesca tela panorâmica, carpetes vermelhos extremamente suntuosos e mais de 1.500 assentos de alto nível, sendo o principal exibidor de superproduções de Hollywood na Avenida Ipiranga.",
+                autoridade: "Inaugurado em 1953 com exibições em tela panorâmica revolucionária, o Windsor foi desativado no início da década de 1980 decorrente da especulação e descentralização cultural da metrópole.",
+                creditos: "Natty Pilho • Pesquisa Audiovisual e Redação TV Cultura"
+            }
+        ];
+
+        // MENUS E RESPONSIVIDADE MOBILE
+        let mobileMenuOpen = false;
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('hamburger-icon');
+            mobileMenuOpen = !mobileMenuOpen;
+            if (mobileMenuOpen) {
+                menu.classList.remove('hidden');
+                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            } else {
+                menu.classList.add('hidden');
+                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            }
+        }
+
+        // RENDER DESTAQUES E ÚLTIMAS NOTÍCIAS (LATERAIS)
+        function renderSidebar() {
+            const destaquesContainer = document.getElementById('destaques-list');
+            const ultimasContainer = document.getElementById('ultimas-list');
+            
+            if (!destaquesContainer || !ultimasContainer) return;
+            
+            destaquesContainer.innerHTML = '';
+            ultimasContainer.innerHTML = '';
+            
+            reportagens.forEach(r => {
+                const destaqueItem = document.createElement('div');
+                destaqueItem.className = "flex gap-4 cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition group";
+                destaqueItem.onclick = () => {
+                    switchView('noticias');
+                    loadReportagem(r.id);
+                };
+                destaqueItem.innerHTML = `
+                    <div class="w-20 h-16 rounded overflow-hidden shrink-0 border border-gray-200 bg-black">
+                        <img src="${r.photo}" alt="${r.manchete}" class="w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition duration-300">
+                    </div>
+                    <div>
+                        <h4 class="font-extrabold text-[10px] text-gray-800 leading-tight group-hover:text-cultura-red transition line-clamp-3">"${r.manchete}"</h4>
+                        <span class="text-[8px] font-mono font-black text-cultura-teal uppercase tracking-widest block mt-1">📍 VER MATÉRIA</span>
+                    </div>
+                `;
+                destaquesContainer.appendChild(destaqueItem);
+
+                const ultimaItem = document.createElement('div');
+                ultimaItem.className = "flex gap-4 cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition group";
+                ultimaItem.onclick = () => {
+                    switchView('noticias');
+                    loadReportagem(r.id);
+                };
+                ultimaItem.innerHTML = `
+                    <div class="w-20 h-16 rounded overflow-hidden shrink-0 border border-gray-200 bg-black">
+                        <img src="${r.photo}" alt="${r.manchete}" class="w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition duration-300">
+                    </div>
+                    <div>
+                        <h4 class="font-extrabold text-[10px] text-gray-800 leading-tight group-hover:text-cultura-teal transition line-clamp-3">${r.manchete}</h4>
+                        <span class="text-[8px] font-mono text-gray-400 font-extrabold block mt-1">${r.date.split(' ')[0]}</span>
+                    </div>
+                `;
+                ultimasContainer.appendChild(ultimaItem);
+            });
+        }
+
+        // CARREGAR REPORTAGEM AUDIOVISUAL DINAMICAMENTE
+        function loadReportagem(id) {
+            const r = reportagens.find(rep => rep.id === id);
+            if (!r) return;
+
+            const article = document.querySelector('article');
+            if (!article) return;
+            
+            article.style.opacity = '0.3';
+            article.style.transform = 'translateY(10px)';
+            article.style.transition = 'all 300ms ease';
+
+            setTimeout(() => {
+                document.getElementById('news-tag').innerText = r.tag;
+                document.getElementById('news-manchete').innerText = r.manchete;
+                document.getElementById('news-linhafina').innerText = r.linhafina;
+                document.getElementById('news-author').innerText = r.author;
+                document.getElementById('news-date').innerText = r.date;
+                document.getElementById('news-photo').src = r.photo;
+                document.getElementById('news-photo').alt = r.manchete;
+                document.getElementById('news-photo-credits').innerText = r.photoCredits;
+                document.getElementById('news-selo').innerText = r.selo;
+                document.getElementById('news-apresentacao').innerHTML = `&ldquo;${r.apresentacao.replace(/"/g, '')}&rdquo;`;
+                document.getElementById('news-gancho').innerText = r.gancho;
+                document.getElementById('news-contexto').innerText = r.contexto;
+                document.getElementById('news-execucao').innerText = r.execucao;
+                document.getElementById('news-autoridade').innerText = r.autoridade;
+                document.getElementById('news-creditos').innerText = `${r.creditos} • Fundação Padre Anchieta`;
+
+                const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?cinema=' + id;
+                window.history.pushState({ path: newUrl }, '', newUrl);
+
+                article.style.opacity = '1';
+                article.style.transform = 'translateY(0)';
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 300);
+        }
+
+        // TEMPLATES DE PÁGINAS SIMULADAS DE ALTA FIDELIDADE
+        const viewTemplates = {
+            aovivo: `
+                <div class="w-full bg-[#071d24] rounded-2xl border border-white/10 p-6 md:p-10 shadow-2xl relative overflow-hidden text-white transition-all duration-300">
+                    <div class="absolute -right-20 -top-20 w-80 h-80 bg-cultura-cyan/10 rounded-full blur-3xl"></div>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                        <!-- Coluna Esquerda: Player -->
+                        <div class="lg:col-span-8 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-center mb-6">
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping"></span>
+                                        <span class="font-mono text-xs font-black uppercase tracking-widest text-red-500">TRANSMISSÃO AO VIVO</span>
+                                    </div>
+                                    <div class="bg-black/40 border border-white/10 px-3 py-1 rounded text-[10px] font-mono text-gray-300 uppercase tracking-widest">
+                                        PROGRAMAÇÃO INTEGRAL
+                                    </div>
+                                </div>
+                                
+                                <!-- Video Canvas Sim -->
+                                <div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl bg-black border border-white/15 flex items-center justify-center group">
+                                    <div id="aovivo-video-placeholder" class="absolute inset-0 flex flex-col items-center justify-center bg-cover bg-center select-none" style="background-image: url('https://images.unsplash.com/photo-1598257006458-087169a1f08d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+                                        <div class="absolute inset-0 bg-black/60 backdrop-blur-[1px]"></div>
+                                        <div class="absolute top-4 right-4 w-8 h-8 rounded bg-cultura-red opacity-80 flex items-center justify-center text-white font-black text-sm italic">C</div>
+                                        
+                                        <button onclick="startLiveSim()" class="w-20 h-20 rounded-full border-2 border-white bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition duration-300 hover:scale-110 shadow-lg group-hover:border-cultura-cyan group-hover:text-cultura-cyan">
+                                            <svg class="w-8 h-8 fill-current ml-1" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
+                                        </button>
+                                        <span class="text-xs uppercase font-mono tracking-widest font-black text-gray-300 mt-4 animate-pulse">Clique para Iniciar Transmissão</span>
+                                    </div>
+                                    
+                                    <!-- Live Playing Video (Simulated using dynamic embed of TV Cultura live feed) -->
+                                    <div id="aovivo-video-iframe-container" class="hidden absolute inset-0 w-full h-full">
+                                        <iframe id="aovivo-video-iframe" class="w-full h-full" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6">
+                                <h2 class="text-2xl font-serif font-black mb-2 uppercase text-white tracking-tight">Roda Viva Especial: Cartografia Afetiva das Calçadas</h2>
+                                <p class="text-xs text-gray-400 font-medium leading-relaxed">Neste bloco ao vivo, o tradicional programa recebe historiadores e a equipe de pesquisa de Natty Pilho para discutir o tombamento cultural e o redesenho dos antigos cinemas modernistas no centro de São Paulo.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Coluna Direita: Grade Ao Vivo & Chat -->
+                        <div class="lg:col-span-4 flex flex-col gap-6">
+                            <!-- Programas da Grade -->
+                            <div class="bg-black/20 border border-white/5 rounded-xl p-5">
+                                <h4 class="font-mono text-[9px] font-black text-cultura-cyan tracking-widest uppercase mb-4 border-b border-white/10 pb-2">No Ar Agora</h4>
+                                <div class="flex flex-col gap-4 text-xs">
+                                    <div class="border-l-2 border-cultura-cyan pl-3 py-0.5">
+                                        <span class="block text-[8px] font-mono text-cultura-cyan font-bold">12:00 - 13:30 (No Ar)</span>
+                                        <span class="font-extrabold text-white uppercase tracking-wider text-[10px]">Roda Viva Especial</span>
+                                    </div>
+                                    <div class="border-l border-white/10 pl-3 py-0.5 text-gray-400">
+                                        <span class="block text-[8px] font-mono">13:30 - 14:00</span>
+                                        <span class="font-extrabold uppercase text-[10px]">Metrópolis News</span>
+                                    </div>
+                                    <div class="border-l border-white/10 pl-3 py-0.5 text-gray-400">
+                                        <span class="block text-[8px] font-mono">14:00 - 15:30</span>
+                                        <span class="font-extrabold uppercase text-[10px]">Cultura Livre (Especial Rael)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Chat Sim -->
+                            <div class="bg-black/30 border border-white/5 rounded-xl p-4 flex flex-col h-72 justify-between">
+                                <span class="font-mono text-[9px] font-black text-gray-400 tracking-widest uppercase mb-2 border-b border-white/5 pb-2">Chat de Audiência (Simulado) 💬</span>
+                                <div id="live-chat-messages" class="flex-1 overflow-y-auto pr-1 text-[11px] space-y-2.5 my-2 scrollbar-thin">
+                                    <div class="text-gray-300"><strong class="text-cultura-cyan font-mono text-[10px]">Carol_Cine:</strong> Que debate fantástico sobre a Avenida Paulista! 😍</div>
+                                    <div class="text-gray-300"><strong class="text-cultura-cyan font-mono text-[10px]">Mateus_AV:</strong> Natty Pilho entregando um trabalho de nível de startup paulistana!</div>
+                                    <div class="text-gray-300"><strong class="text-cultura-cyan font-mono text-[10px]">Fernanda_SP:</strong> Ver o Cine Marquise restaurado é um sonho de infância!</div>
+                                </div>
+                                <div class="flex gap-2 border-t border-white/10 pt-3">
+                                    <input id="live-chat-input" onkeydown="if(event.key === 'Enter') sendChatMessage()" type="text" placeholder="Envie sua mensagem..." class="flex-1 bg-black/40 border border-white/10 rounded px-2.5 py-1.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-cultura-cyan font-semibold">
+                                    <button onclick="sendChatMessage()" class="bg-cultura-cyan text-white text-[9px] font-mono font-black uppercase tracking-widest px-3 rounded hover:bg-cyan-500 transition">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `,
+            radio: `
+                <div class="w-full bg-[#121214] rounded-2xl border border-white/10 p-6 md:p-10 shadow-2xl relative overflow-hidden text-white transition-all duration-300">
+                    <div class="absolute -right-20 -top-20 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl"></div>
+                    <div class="flex flex-col lg:flex-row gap-10 items-center justify-between">
+                        <div class="flex-1 max-w-xl">
+                            <span class="font-mono text-[10px] font-black text-orange-500 tracking-widest uppercase block mb-2">RÁDIOS PORTAL FUNDAÇÃO PADRE ANCHIETA</span>
+                            <h2 class="text-3xl md:text-4xl font-serif font-black uppercase leading-tight text-white mb-6">Cultura FM &amp; Cultura Brasil</h2>
+                            <p class="text-xs md:text-sm text-gray-400 mb-8 leading-relaxed font-medium">
+                                Escolha a estação do portal e mergulhe em uma sintonização digital de alta fidelidade. De arranjos orquestrais eruditos a clássicos históricos da MPB tradicional.
+                            </p>
+                            
+                            <!-- Seleção de Estação -->
+                            <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                                <button id="radio-station-fm" onclick="selectRadioStation('fm')" class="flex-1 bg-orange-500 border border-orange-500 text-white font-extrabold text-xs tracking-wider uppercase font-mono py-4 px-6 rounded-lg transition duration-300 shadow-md">
+                                    📻 Cultura FM 103.3
+                                </button>
+                                <button id="radio-station-am" onclick="selectRadioStation('am')" class="flex-1 bg-black/40 border border-white/10 text-gray-400 hover:text-white hover:border-white font-extrabold text-xs tracking-wider uppercase font-mono py-4 px-6 rounded-lg transition duration-300">
+                                    📻 Cultura Brasil AM 1200
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Tuner Cassette Deck Board -->
+                        <div class="w-full lg:w-96 bg-black/60 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col items-center shadow-inner">
+                            <div class="w-full bg-orange-500/5 border border-orange-500/20 rounded-lg p-4 flex flex-col items-center justify-center mb-6">
+                                <span id="radio-station-display-name" class="font-mono text-orange-500 font-extrabold uppercase text-[10px] tracking-widest mb-1">Cultura FM 103.3 MHz</span>
+                                <span id="radio-song-title" class="font-serif text-white font-bold text-center text-sm line-clamp-1">Villa-Lobos: Bachianas Brasileiras No. 5</span>
+                                <span id="radio-song-author" class="font-mono text-gray-400 text-[10px] mt-1">Orquestra Sinfônica TV Cultura</span>
+                            </div>
+                            
+                            <!-- Soundwave Simulator -->
+                            <div class="flex items-end justify-center gap-1.5 h-16 w-full mb-8 relative">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
+                                <div id="wave-1" class="w-1.5 bg-orange-500 rounded-t h-2 transition-all duration-300"></div>
+                                <div id="wave-2" class="w-1.5 bg-orange-500 rounded-t h-4 transition-all duration-300"></div>
+                                <div id="wave-3" class="w-1.5 bg-orange-500 rounded-t h-6 transition-all duration-300"></div>
+                                <div id="wave-4" class="w-1.5 bg-orange-500 rounded-t h-12 transition-all duration-300"></div>
+                                <div id="wave-5" class="w-1.5 bg-orange-500 rounded-t h-8 transition-all duration-300"></div>
+                                <div id="wave-6" class="w-1.5 bg-orange-500 rounded-t h-14 transition-all duration-300"></div>
+                                <div id="wave-7" class="w-1.5 bg-orange-500 rounded-t h-10 transition-all duration-300"></div>
+                                <div id="wave-8" class="w-1.5 bg-orange-500 rounded-t h-5 transition-all duration-300"></div>
+                            </div>
+                            
+                            <!-- Audio Control Elements -->
+                            <audio id="radio-audio-element" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="none"></audio>
+                            
+                            <div class="flex justify-center items-center gap-6 w-full">
+                                <button onclick="toggleRadioPlay()" id="radio-play-btn" class="w-16 h-16 rounded-full bg-white text-black flex items-center justify-center hover:scale-110 transition duration-300 shadow-md">
+                                    <svg id="radio-play-icon" class="w-6 h-6 fill-current ml-1" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
+                                </button>
+                            </div>
+                            <span class="text-[9px] font-mono text-gray-500 font-extrabold uppercase mt-6 tracking-widest text-center">Clique no Botão para Escutar Áudio Real</span>
+                        </div>
+                    </div>
+                </div>
+            `,
+            esporte: `
+                <div class="w-full bg-white text-gray-900 transition-all duration-300">
+                    <div class="border-b border-gray-200 pb-4 mb-8">
+                        <span class="text-cultura-red font-mono text-xs font-black uppercase tracking-widest mb-1 block">ESPORTE CULTURA</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-black uppercase text-gray-900 tracking-tight">O Templo Modernista do Pacaembu e a Memória de SP</h2>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        <div class="lg:col-span-8 flex flex-col gap-6 text-sm text-gray-700 leading-relaxed font-medium">
+                            <img src="./pacaembu_stadium.png" alt="Pacaembu Stadium" class="w-full h-80 object-cover rounded-xl shadow border border-gray-200 mb-2">
+                            <p class="font-bold text-gray-900 text-base">Inaugurado em 1940 sob as diretrizes arquitetônicas modernistas, o Estádio Municipal Paulo Machado de Carvalho (Pacaembu) transcende as rivalidades esportivas paulistas.</p>
+                            <p>O espaço, tombado pelo patrimônio histórico de São Paulo, representa uma efervescência urbana paralela aos cinemas de rua. Suas curvas imponentes de concreto desenhadas na bacia do Pacaembu foram projetadas para abrigar a união democrática da sociedade paulistana por meio do esporte e da cultura física.</p>
+                            <p>Atualmente em processo de revitalização e reabertura em 2026, o Pacaembu continua vivo no imaginário afetivo dos paulistanos, assim como os templos cinematográficos que resistem no centro expandido da capital.</p>
+                            <div class="border-t border-gray-200 pt-6 text-[9px] font-mono text-gray-400 font-extrabold uppercase tracking-wider">
+                                Reportagem por Relações Esportivas TV Cultura • Fundação Padre Anchieta 2026
+                            </div>
+                        </div>
+                        
+                        <div class="lg:col-span-4 flex flex-col gap-6">
+                            <div class="bg-cultura-grayLight border border-gray-200 rounded-xl p-5 shadow-sm">
+                                <h4 class="font-mono text-[10px] font-black text-cultura-teal tracking-widest uppercase mb-4 border-b border-gray-200 pb-2">Clássicos Históricos</h4>
+                                <div class="flex flex-col gap-4 text-xs font-semibold text-gray-800">
+                                    <div class="pb-2 border-b border-gray-200/60">
+                                        <span class="block text-[8px] font-mono text-cultura-red">1940 • ESTREIA</span>
+                                        <span>Palestra Itália 6 x 2 Corinthians</span>
+                                    </div>
+                                    <div class="pb-2 border-b border-gray-200/60">
+                                        <span class="block text-[8px] font-mono text-cultura-red">1950 • COPA DO MUNDO</span>
+                                        <span>Brasil 2 x 2 Suíça</span>
+                                    </div>
+                                    <div>
+                                        <span class="block text-[8px] font-mono text-cultura-red">1963 • DECISÃO</span>
+                                        <span>Santos de Pelé 3 x 2 Milan (Mundial)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `,
+            entretenimento: `
+                <div class="w-full bg-white text-gray-900 transition-all duration-300">
+                    <div class="border-b border-gray-200 pb-4 mb-8">
+                        <span class="text-cultura-red font-mono text-xs font-black uppercase tracking-widest mb-1 block">ENTRETENIMENTO PORTAL</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-black uppercase text-gray-900 tracking-tight">O Circuito Oficial da Mostra Internacional de Cinema de SP</h2>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        <div class="lg:col-span-8 flex flex-col gap-6 text-sm text-gray-700 leading-relaxed font-medium">
+                            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Cinema" class="w-full h-80 object-cover rounded-xl shadow border border-gray-200 mb-2">
+                            <p class="font-bold text-gray-900 text-base">A efervescência do cinema de calçada ganha reforço colossal com o circuito comemorativo da Mostra Internacional de Cinema em São Paulo.</p>
+                            <p>A organização anunciou uma rota de projeção que irá integrar o Cine Marquise na Avenida Paulista, o CineSesc na Augusta, e o lendário Cine Petra Belas Artes na Consolação. A iniciativa visa resgatar a experiência física e comunitária de assistir filmes a partir da calçada, debatendo as produções nacionais de forma imediata.</p>
+                            <p>Estudante de Audiovisual e estagiária na TV Cultura, Natty Pilho, realizou uma cobertura fotográfica exclusiva dos bastidores que será veiculada no programa Metrópolis desta semana, trazendo entrevistas exclusivas com diretores brasileiros.</p>
+                        </div>
+                        
+                        <div class="lg:col-span-4 flex flex-col gap-6">
+                            <div class="bg-cultura-grayLight border border-gray-200 rounded-xl p-5 shadow-sm">
+                                <h4 class="font-mono text-[10px] font-black text-cultura-teal tracking-widest uppercase mb-4 border-b border-gray-200 pb-2">Destaques da Mostra</h4>
+                                <div class="flex flex-col gap-4 text-xs font-semibold text-gray-800">
+                                    <div class="pb-2 border-b border-gray-200/60">
+                                        <span class="block text-[8px] font-mono text-cultura-teal">SESSÃO DE ABERTURA</span>
+                                        <span>Exibição de Restauro de "Cine Marrocos"</span>
+                                    </div>
+                                    <div class="pb-2 border-b border-gray-200/60">
+                                        <span class="block text-[8px] font-mono text-cultura-teal">DEBATES EM FOCO</span>
+                                        <span>Roda de Conversa com Ricardo Calil no CineSesc</span>
+                                    </div>
+                                    <div>
+                                        <span class="block text-[8px] font-mono text-cultura-teal">FESTIVAL INDIE</span>
+                                        <span>Mostra Curtas Independentes de Audiovisual USP</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `,
+            jazz: `
+                <div class="w-full bg-[#0a071c] text-white rounded-2xl border border-white/10 p-6 md:p-10 shadow-2xl relative overflow-hidden transition-all duration-300">
+                    <div class="absolute -right-20 -top-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
+                    <div class="max-w-3xl mb-8">
+                        <span class="font-mono text-[10px] font-black text-purple-400 tracking-widest uppercase block mb-2">ORQUESTRA JAZZ SINFÔNICA DA TV CULTURA</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-black uppercase leading-tight text-white mb-4">Sala de Concerto Virtual</h2>
+                        <p class="text-xs md:text-sm text-gray-400 leading-relaxed font-medium">
+                            Fundada em 1989 pela Secretaria da Cultura de SP e mantida pela Fundação Padre Anchieta, a Jazz Sinfônica une a suntuosidade de uma orquestra erudita com o molejo e improvisação do jazz e da MPB. Ouça as apresentações históricas simuladas abaixo.
+                        </p>
+                    </div>
+                    
+                    <!-- Concert Hall Tracks -->
+                    <div class="flex flex-col gap-4 max-w-4xl">
+                        <!-- Concerto 1 -->
+                        <div class="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition duration-300 group">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded bg-purple-500/20 flex items-center justify-center text-purple-400 font-extrabold text-sm shadow-inner group-hover:scale-105 transition">🎵</div>
+                                <div>
+                                    <h4 class="font-extrabold text-xs md:text-sm uppercase tracking-wider">Jazz Sinfônica convida Rael - Ao Vivo</h4>
+                                    <p class="text-[9px] font-mono text-gray-400 mt-0.5">Auditório Ibirapuera • Arranjos de Fábio Prado</p>
+                                </div>
+                            </div>
+                            <button onclick="playConcert('Jazz Sinfônica convida Rael', 'Orquestra Jazz Sinfônica')" class="px-4 py-2 bg-purple-600 text-white font-mono font-black text-[9px] uppercase tracking-widest rounded hover:bg-purple-500 transition shadow">Executar</button>
+                        </div>
+                        <!-- Concerto 2 -->
+                        <div class="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition duration-300 group">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded bg-purple-500/20 flex items-center justify-center text-purple-400 font-extrabold text-sm shadow-inner group-hover:scale-105 transition">🎵</div>
+                                <div>
+                                    <h4 class="font-extrabold text-xs md:text-sm uppercase tracking-wider">Tom Jobim Sinfônico - Regência Galindo</h4>
+                                    <p class="text-[9px] font-mono text-gray-400 mt-0.5">Memorial da América Latina • Especial MPB</p>
+                                </div>
+                            </div>
+                            <button onclick="playConcert('Tom Jobim Sinfônico', 'Regência de João Galindo')" class="px-4 py-2 bg-purple-600 text-white font-mono font-black text-[9px] uppercase tracking-widest rounded hover:bg-purple-500 transition shadow">Executar</button>
+                        </div>
+                        <!-- Concerto 3 -->
+                        <div class="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition duration-300 group">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded bg-purple-500/20 flex items-center justify-center text-purple-400 font-extrabold text-sm shadow-inner group-hover:scale-105 transition">🎵</div>
+                                <div>
+                                    <h4 class="font-extrabold text-xs md:text-sm uppercase tracking-wider">Trilhas Sonoras de Cinemas de Calçada</h4>
+                                    <p class="text-[9px] font-mono text-gray-400 mt-0.5">Teatro Franco Zampari • Suíte Temática</p>
+                                </div>
+                            </div>
+                            <button onclick="playConcert('Trilhas Cinemas Calçada', 'Especial Cinema Entre Ruas')" class="px-4 py-2 bg-purple-600 text-white font-mono font-black text-[9px] uppercase tracking-widest rounded hover:bg-purple-500 transition shadow">Executar</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Sinfonica Playdeck (Simulated Dashboard) -->
+                    <div id="jazz-playdeck" class="hidden mt-8 max-w-4xl bg-black/60 border border-purple-500/20 p-5 rounded-xl flex items-center justify-between gap-6 shadow-inner animate-pulse">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-black font-black text-xs">▶</div>
+                            <div>
+                                <span class="block text-[8px] font-mono text-purple-400 uppercase tracking-widest">Executando Orquestra</span>
+                                <h5 id="jazz-playing-title" class="font-extrabold text-xs uppercase text-white tracking-wider">Trilhas Sonoras de Cinemas de Calçada</h5>
+                                <p id="jazz-playing-author" class="text-[9px] text-gray-400">Especial Cinema Entre Ruas</p>
+                            </div>
+                        </div>
+                        <div class="flex items-end gap-1 h-8">
+                            <div class="w-1 bg-purple-500 rounded-t h-4"></div>
+                            <div class="w-1 bg-purple-500 rounded-t h-8"></div>
+                            <div class="w-1 bg-purple-500 rounded-t h-6"></div>
+                            <div class="w-1 bg-purple-500 rounded-t h-2"></div>
+                        </div>
+                    </div>
+                </div>
+            `,
+            programas: `
+                <div class="w-full bg-white text-gray-900 transition-all duration-300">
+                    <div class="border-b border-gray-200 pb-4 mb-8">
+                        <span class="text-cultura-red font-mono text-xs font-black uppercase tracking-widest mb-1 block">GRADE PORTAL</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-black uppercase text-gray-900 tracking-tight">Programas de Destaque da TV Cultura</h2>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Roda Viva -->
+                        <div class="border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between">
+                            <div class="p-6">
+                                <span class="font-mono text-[9px] text-cultura-red font-black tracking-widest uppercase block mb-2">DEBATE E POLÍTICA</span>
+                                <h4 class="font-black text-base uppercase text-gray-900 tracking-tight mb-2">Roda Viva</h4>
+                                <p class="text-xs text-gray-500 leading-relaxed font-medium">O principal e mais respeitado programa de entrevistas do país. Uma bancada de jornalistas de elite sabatinando grandes personalidades da política, ciência e cultura brasileira.</p>
+                            </div>
+                            <div class="bg-cultura-grayLight px-6 py-4 border-t border-gray-200">
+                                <span class="font-mono text-[9px] font-black text-cultura-teal uppercase tracking-widest">Segundas às 22h00</span>
+                            </div>
+                        </div>
+                        <!-- Metropolis -->
+                        <div class="border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between">
+                            <div class="p-6">
+                                <span class="font-mono text-[9px] text-cultura-red font-black tracking-widest uppercase block mb-2">ARTE E ESPETÁCULO</span>
+                                <h4 class="font-black text-base uppercase text-gray-900 tracking-tight mb-2">Metrópolis</h4>
+                                <p class="text-xs text-gray-500 leading-relaxed font-medium">O único programa diário de cultura e artes da TV aberta nacional. Há mais de 30 anos trazendo reportagens, lançamentos literários e bastidores das calçadas de São Paulo.</p>
+                            </div>
+                            <div class="bg-cultura-grayLight px-6 py-4 border-t border-gray-200">
+                                <span class="font-mono text-[9px] font-black text-cultura-teal uppercase tracking-widest">Domingos às 19h00</span>
+                            </div>
+                        </div>
+                        <!-- Cultura Livre -->
+                        <div class="border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between">
+                            <div class="p-6">
+                                <span class="font-mono text-[9px] text-cultura-red font-black tracking-widest uppercase block mb-2">MÚSICA AUTORAL</span>
+                                <h4 class="font-black text-base uppercase text-gray-900 tracking-tight mb-2">Cultura Livre</h4>
+                                <p class="text-xs text-gray-500 leading-relaxed font-medium">Comandado por Roberta Martinelli, o programa abre espaço para novos talentos e consagradas vozes da música alternativa nacional em performances íntimas e entrevistas descontraídas.</p>
+                            </div>
+                            <div class="bg-cultura-grayLight px-6 py-4 border-t border-gray-200">
+                                <span class="font-mono text-[9px] font-black text-cultura-teal uppercase tracking-widest">Sábados às 18h00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `,
+            grade: `
+                <div class="w-full bg-white text-gray-900 transition-all duration-300">
+                    <div class="border-b border-gray-200 pb-4 mb-8">
+                        <span class="text-cultura-red font-mono text-xs font-black uppercase tracking-widest mb-1 block">PORTAL PROGRAMAÇÃO</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-black uppercase text-gray-900 tracking-tight">Grade de Programação Diária</h2>
+                        <p class="text-xs text-gray-500 font-semibold leading-relaxed mt-2">Veja os horários completos de exibição e os blocos de debate sobre os cinemas de calçada nesta semana na TV Cultura.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        <div class="lg:col-span-8">
+                            <div class="flex flex-col border border-gray-200 rounded-xl overflow-hidden shadow-sm bg-white">
+                                <!-- Linha 1 -->
+                                <div onclick="selectGradeSlot('06:00 - 08:00', 'Jornal da Cultura Manhã', 'O resumo matinal das principais notícias do Brasil e do mundo com análises de economistas e sociólogos.')" class="flex items-center gap-6 p-4 border-b border-gray-200 hover:bg-cultura-grayLight transition cursor-pointer">
+                                    <div class="font-mono text-xs font-extrabold text-cultura-red w-28 shrink-0">06:00 - 08:00</div>
+                                    <div class="font-extrabold text-xs md:text-sm uppercase tracking-wider text-gray-900">Jornal da Cultura Manhã</div>
+                                </div>
+                                <!-- Linha 2 -->
+                                <div onclick="selectGradeSlot('08:00 - 12:00', 'Quintal da Cultura', 'Bloco infantil multipremiado, mesclando contação de histórias tradicionais brasileiras com fantoches, gincanas de raciocínio lógico e desenhos didáticos.')" class="flex items-center gap-6 p-4 border-b border-gray-200 hover:bg-cultura-grayLight transition cursor-pointer">
+                                    <div class="font-mono text-xs font-extrabold text-cultura-red w-28 shrink-0">08:00 - 12:00</div>
+                                    <div class="font-extrabold text-xs md:text-sm uppercase tracking-wider text-gray-900">Quintal da Cultura</div>
+                                </div>
+                                <!-- Linha 3 -->
+                                <div onclick="selectGradeSlot('12:00 - 13:30', 'Roda Viva Especial: Cartografia', 'O debate oficial de Natty Pilho e equipe acadêmica com historiadores e urbanistas sobre o restauro urbanístico das salas de calçada paulistas.')" class="flex items-center gap-6 p-4 border-b border-gray-200 bg-cultura-teal/5 hover:bg-cultura-teal/10 transition cursor-pointer">
+                                    <div class="font-mono text-xs font-extrabold text-cultura-teal w-28 shrink-0 flex items-center gap-1.5">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-cultura-cyan animate-pulse"></span>
+                                        12:00 - 13:30
+                                    </div>
+                                    <div class="font-black text-xs md:text-sm uppercase tracking-wider text-cultura-teal">Roda Viva Especial (No Ar)</div>
+                                </div>
+                                <!-- Linha 4 -->
+                                <div onclick="selectGradeSlot('13:30 - 14:00', 'Metrópolis Especial', 'Natty Pilho apresenta as fotos históricas originais obtidas em seu memorial acadêmico e as rotas guiadas integradas no mapa.')" class="flex items-center gap-6 p-4 border-b border-gray-200 hover:bg-cultura-grayLight transition cursor-pointer">
+                                    <div class="font-mono text-xs font-extrabold text-cultura-red w-28 shrink-0">13:30 - 14:00</div>
+                                    <div class="font-extrabold text-xs md:text-sm uppercase tracking-wider text-gray-900">Metrópolis Especial</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lg:col-span-4">
+                            <div id="grade-detail-box" class="bg-cultura-grayLight border border-gray-200 rounded-xl p-5 shadow-sm h-full flex flex-col justify-center text-center">
+                                <div class="text-3xl text-cultura-teal/30 mb-4">📺</div>
+                                <h4 class="font-extrabold text-xs uppercase text-gray-800 tracking-wider mb-2">Clique em um Programa da Grade</h4>
+                                <p class="text-[11px] text-gray-500 leading-relaxed font-semibold">Selecione qualquer horário ao lado para carregar a sinopse detalhada e equipe técnica da exibição em tempo real.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `,
+            podcasts: `
+                <div class="w-full bg-[#0a0a0c] text-white rounded-2xl border border-white/10 p-6 md:p-10 shadow-2xl relative overflow-hidden transition-all duration-300">
+                    <div class="absolute -right-20 -top-20 w-80 h-80 bg-green-500/5 rounded-full blur-3xl"></div>
+                    <div class="max-w-3xl mb-10">
+                        <span class="font-mono text-[9px] font-black text-green-500 tracking-widest uppercase block mb-2">PORTAL DE PODCASTS - PORTAL FPA</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-black uppercase leading-tight text-white mb-4">Estação Podcasts Digitais</h2>
+                        <p class="text-xs md:text-sm text-gray-400 leading-relaxed font-medium">
+                            Selecione episódios do acervo oficial Roda Viva, Metrópolis, ou o novíssimo e exclusivo podcast <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-green-500 font-extrabold uppercase">Cinema Entre Ruas</span> de Natty Pilho.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                        <!-- Podcasts List -->
+                        <div class="lg:col-span-7 flex flex-col gap-3.5">
+                            <!-- Episódio 1 -->
+                            <div class="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition duration-300 group cursor-pointer" onclick="playPodcast('Marquise & A Sobrevivência na Avenida Paulista', 'Cinema Entre Ruas - Ep 1', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3')">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded bg-green-500/10 flex items-center justify-center text-green-500 font-mono font-bold text-xs shrink-0 group-hover:scale-105 transition">EP1</div>
+                                    <div>
+                                        <h4 class="font-extrabold text-xs md:text-sm uppercase tracking-wider">Marquise &amp; A Sobrevivência na Avenida Paulista</h4>
+                                        <p class="text-[9px] font-mono text-gray-400 mt-0.5">Podcast Cinema Entre Ruas • Duração: 18 min</p>
+                                    </div>
+                                </div>
+                                <span class="text-green-500 text-base font-extrabold group-hover:translate-x-1 transition">▶</span>
+                            </div>
+                            <!-- Episódio 2 -->
+                            <div class="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition duration-300 group cursor-pointer" onclick="playPodcast('A Acústica de Rino Levi no Cine Ipiranga', 'Cinema Entre Ruas - Ep 2', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3')">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded bg-green-500/10 flex items-center justify-center text-green-500 font-mono font-bold text-xs shrink-0 group-hover:scale-105 transition">EP2</div>
+                                    <div>
+                                        <h4 class="font-extrabold text-xs md:text-sm uppercase tracking-wider">A Acústica de Rino Levi no Cine Ipiranga</h4>
+                                        <p class="text-[9px] font-mono text-gray-400 mt-0.5">Podcast Cinema Entre Ruas • Duração: 22 min</p>
+                                    </div>
+                                </div>
+                                <span class="text-green-500 text-base font-extrabold group-hover:translate-x-1 transition">▶</span>
+                            </div>
+                            <!-- Episódio 3 -->
+                            <div class="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition duration-300 group cursor-pointer" onclick="playPodcast('Cine Marrocos e as Ruínas Douradas', 'Cinema Entre Ruas - Ep 3', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3')">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded bg-green-500/10 flex items-center justify-center text-green-500 font-mono font-bold text-xs shrink-0 group-hover:scale-105 transition">EP3</div>
+                                    <div>
+                                        <h4 class="font-extrabold text-xs md:text-sm uppercase tracking-wider">Cine Marrocos e as Ruínas Douradas</h4>
+                                        <p class="text-[9px] font-mono text-gray-400 mt-0.5">Podcast Cinema Entre Ruas • Duração: 25 min</p>
+                                    </div>
+                                </div>
+                                <span class="text-green-500 text-base font-extrabold group-hover:translate-x-1 transition">▶</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Spotify Like Playing Panel -->
+                        <div class="lg:col-span-5 bg-black/40 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col justify-between items-center shadow-inner min-h-[300px]">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-28 h-28 rounded-xl bg-gradient-to-tr from-green-600 via-emerald-800 to-black border border-white/10 flex items-center justify-center text-white font-serif font-black text-2xl shadow-xl mb-4" id="podcast-cover-art">🎧</div>
+                                <span class="font-mono text-[8px] text-green-500 font-black tracking-widest uppercase block mb-1">REPRODUZINDO AGORA</span>
+                                <h4 id="podcast-playing-title" class="font-black text-xs md:text-sm uppercase tracking-wider text-white">Nenhum Episódio Selecionado</h4>
+                                <p id="podcast-playing-author" class="text-[10px] text-gray-400 mt-1">Selecione qualquer episódio ao lado para escutar</p>
+                            </div>
+                            
+                            <!-- Custom Audio Simulator Tracker -->
+                            <div class="w-full mt-6">
+                                <audio id="podcast-audio-element" src="" preload="none"></audio>
+                                <div class="flex items-center gap-3 text-[10px] font-mono text-gray-400">
+                                    <span id="podcast-time-current">00:00</span>
+                                    <div class="flex-1 h-1 bg-white/10 rounded overflow-hidden relative cursor-pointer" onclick="seekPodcast(event)">
+                                        <div id="podcast-progress-bar" class="absolute left-0 top-0 bottom-0 bg-green-500 w-0 transition-all duration-100"></div>
+                                    </div>
+                                    <span id="podcast-time-total">00:00</span>
+                                </div>
+                                <div class="flex justify-center mt-6">
+                                    <button onclick="togglePodcastPlay()" id="podcast-play-btn" class="w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 text-black flex items-center justify-center hover:scale-105 transition shadow-lg">
+                                        <span id="podcast-play-icon" class="text-base">▶</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        };
+
+        // RÁDIO ENGINE CONTROLLER
+        let radioPlaying = false;
+        let radioWavesInterval = null;
+        
+        function selectRadioStation(station) {
+            const fmBtn = document.getElementById('radio-station-fm');
+            const amBtn = document.getElementById('radio-station-am');
+            const audio = document.getElementById('radio-audio-element');
+            
+            if (!fmBtn || !amBtn || !audio) return;
+            
+            // Parar reprodução ativa
+            audio.pause();
+            radioPlaying = false;
+            document.getElementById('radio-play-icon').innerHTML = '<path d="M4 4l12 6-12 6z"/>';
+            clearInterval(radioWavesInterval);
+            resetRadioWaves();
+            
+            if (station === 'fm') {
+                fmBtn.className = "flex-1 bg-orange-500 border border-orange-500 text-white font-extrabold text-xs tracking-wider uppercase font-mono py-4 px-6 rounded-lg transition duration-300 shadow-md";
+                amBtn.className = "flex-1 bg-black/40 border border-white/10 text-gray-400 hover:text-white hover:border-white font-extrabold text-xs tracking-wider uppercase font-mono py-4 px-6 rounded-lg transition duration-300";
+                
+                document.getElementById('radio-station-display-name').innerText = "Cultura FM 103.3 MHz";
+                document.getElementById('radio-song-title').innerText = "Villa-Lobos: Bachianas Brasileiras No. 5";
+                document.getElementById('radio-song-author').innerText = "Orquestra Sinfônica TV Cultura";
+                audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+            } else {
+                amBtn.className = "flex-1 bg-orange-500 border border-orange-500 text-white font-extrabold text-xs tracking-wider uppercase font-mono py-4 px-6 rounded-lg transition duration-300 shadow-md";
+                fmBtn.className = "flex-1 bg-black/40 border border-white/10 text-gray-400 hover:text-white hover:border-white font-extrabold text-xs tracking-wider uppercase font-mono py-4 px-6 rounded-lg transition duration-300";
+                
+                document.getElementById('radio-station-display-name').innerText = "Cultura Brasil AM 1200 kHz";
+                document.getElementById('radio-song-title').innerText = "Elis Regina: Águas de Março";
+                document.getElementById('radio-song-author').innerText = "Especial Grandes Cantores do Samba";
+                audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3";
+            }
+        }
+
+        function toggleRadioPlay() {
+            const audio = document.getElementById('radio-audio-element');
+            const playIcon = document.getElementById('radio-play-icon');
+            if (!audio || !playIcon) return;
+            
+            if (radioPlaying) {
+                audio.pause();
+                radioPlaying = false;
+                playIcon.innerHTML = '<path d="M4 4l12 6-12 6z"/>';
+                clearInterval(radioWavesInterval);
+                resetRadioWaves();
+            } else {
+                audio.play().then(() => {
+                    radioPlaying = true;
+                    playIcon.innerHTML = '<path d="M4 4h4v12H4zm8 0h4v12h-4z"/>';
+                    animateRadioWaves();
+                }).catch(err => {
+                    console.log("Audio load error, using simulation fallback", err);
+                    radioPlaying = true;
+                    playIcon.innerHTML = '<path d="M4 4h4v12H4zm8 0h4v12h-4z"/>';
+                    animateRadioWaves();
+                });
+            }
+        }
+
+        function animateRadioWaves() {
+            radioWavesInterval = setInterval(() => {
+                for (let i = 1; i <= 8; i++) {
+                    const wave = document.getElementById('wave-' + i);
+                    if (wave) {
+                        const height = Math.floor(Math.random() * 85) + 15;
+                        wave.style.height = height + '%';
+                    }
+                }
+            }, 150);
+        }
+
+        function resetRadioWaves() {
+            for (let i = 1; i <= 8; i++) {
+                const wave = document.getElementById('wave-' + i);
+                if (wave) wave.style.height = '15%';
+            }
+        }
+
+        // AO VIVO ENGINE CONTROLLER
+        function startLiveSim() {
+            const placeholder = document.getElementById('aovivo-video-placeholder');
+            const container = document.getElementById('aovivo-video-iframe-container');
+            const iframe = document.getElementById('aovivo-video-iframe');
+            
+            if (!placeholder || !container || !iframe) return;
+            
+            placeholder.classList.add('hidden');
+            container.classList.remove('hidden');
+            
+            // TV Cultura YouTube Official Trailer / Video link for visual resilience
+            iframe.src = "https://www.youtube.com/embed/4MCPrwlcf5o?autoplay=1";
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('live-chat-input');
+            const chatBox = document.getElementById('live-chat-messages');
+            
+            if (!input || !chatBox || input.value.trim() === '') return;
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = "text-white bg-white/5 px-2.5 py-1.5 rounded animate-fade-in";
+            messageDiv.innerHTML = `<strong class="text-yellow-400 font-mono text-[10px]">Natty_Estudante:</strong> ${sanitizeHTML(input.value)}`;
+            
+            chatBox.appendChild(messageDiv);
+            input.value = '';
+            
+            // Scroll to bottom
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function sanitizeHTML(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
+        }
+
+        // JAZZ CONCERT ENGINE
+        function playConcert(title, author) {
+            const deck = document.getElementById('jazz-playdeck');
+            const displayTitle = document.getElementById('jazz-playing-title');
+            const displayAuthor = document.getElementById('jazz-playing-author');
+            
+            if (!deck || !displayTitle || !displayAuthor) return;
+            
+            deck.classList.remove('hidden');
+            displayTitle.innerText = title;
+            displayAuthor.innerText = author;
+            
+            // Trigger temporary browser auditory click feedback
+            try {
+                const clickSnd = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3");
+                clickSnd.volume = 0.3;
+                clickSnd.play().then(() => {
+                    setTimeout(() => clickSnd.pause(), 1000);
+                });
+            } catch(e){}
+        }
+
+        // GRADE ENGINE CONTROLLER
+        function selectGradeSlot(timeSlot, name, desc) {
+            const detailBox = document.getElementById('grade-detail-box');
+            if (!detailBox) return;
+            
+            detailBox.className = "bg-cultura-teal text-white border border-cultura-teal rounded-xl p-6 shadow-md h-full flex flex-col justify-between text-left";
+            detailBox.innerHTML = `
+                <div>
+                    <span class="font-mono text-[9px] font-black text-cultura-cyan tracking-widest uppercase block mb-1">Grade Técnica</span>
+                    <span class="block text-xs font-mono font-bold text-cultura-cyan mb-3">${timeSlot}</span>
+                    <h4 class="font-black text-sm uppercase tracking-wider mb-2 border-b border-white/10 pb-2">${name}</h4>
+                    <p class="text-[11px] text-gray-300 leading-relaxed font-semibold">${desc}</p>
+                </div>
+                <div class="border-t border-white/10 pt-4 mt-6 text-[8px] font-mono text-gray-400 uppercase font-black">
+                    Transmissão Nacional • FPA 2026
+                </div>
+            `;
+        }
+
+        // PODCAST PLAYER ENGINE
+        let podcastPlaying = false;
+        let podcastUpdateTimer = null;
+        
+        function playPodcast(title, subtitle, audioSrc) {
+            const audio = document.getElementById('podcast-audio-element');
+            const displayTitle = document.getElementById('podcast-playing-title');
+            const displayAuthor = document.getElementById('podcast-playing-author');
+            const coverArt = document.getElementById('podcast-cover-art');
+            const playIcon = document.getElementById('podcast-play-icon');
+            
+            if (!audio || !displayTitle || !displayAuthor || !playIcon) return;
+            
+            // Reset state
+            audio.pause();
+            podcastPlaying = false;
+            clearInterval(podcastUpdateTimer);
+            
+            displayTitle.innerText = title;
+            displayAuthor.innerText = subtitle;
+            audio.src = audioSrc;
+            
+            if (coverArt) {
+                coverArt.innerText = "🎙️";
+                coverArt.className = "w-28 h-28 rounded-xl bg-gradient-to-tr from-green-500 to-black border border-green-500/20 flex items-center justify-center text-white font-serif font-black text-4xl shadow-xl mb-4";
+            }
+            
+            // Executar
+            audio.play().then(() => {
+                podcastPlaying = true;
+                playIcon.innerText = "⏸";
+                startPodcastTracker();
+            }).catch(e => {
+                console.log("Audio simulation mode active");
+                podcastPlaying = true;
+                playIcon.innerText = "⏸";
+                startPodcastTrackerSim();
+            });
+        }
+
+        function togglePodcastPlay() {
+            const audio = document.getElementById('podcast-audio-element');
+            const playIcon = document.getElementById('podcast-play-icon');
+            
+            if (!audio || !playIcon) return;
+            if (audio.src === "" || audio.src.includes("window.location")) {
+                alert("Por favor, selecione um episódio na lista ao lado primeiro!");
+                return;
+            }
+            
+            if (podcastPlaying) {
+                audio.pause();
+                podcastPlaying = false;
+                playIcon.innerText = "▶";
+                clearInterval(podcastUpdateTimer);
+            } else {
+                audio.play().then(() => {
+                    podcastPlaying = true;
+                    playIcon.innerText = "⏸";
+                    startPodcastTracker();
+                }).catch(e => {
+                    podcastPlaying = true;
+                    playIcon.innerText = "⏸";
+                    startPodcastTrackerSim();
+                });
+            }
+        }
+
+        function startPodcastTracker() {
+            const audio = document.getElementById('podcast-audio-element');
+            const currentT = document.getElementById('podcast-time-current');
+            const totalT = document.getElementById('podcast-time-total');
+            const progressB = document.getElementById('podcast-progress-bar');
+            
+            if (!audio || !currentT || !totalT || !progressB) return;
+            
+            podcastUpdateTimer = setInterval(() => {
+                if (isNaN(audio.duration)) return;
+                
+                const cur = audio.currentTime;
+                const tot = audio.duration;
+                
+                currentT.innerText = formatPodcastTime(cur);
+                totalT.innerText = formatPodcastTime(tot);
+                
+                const percent = (cur / tot) * 100;
+                progressB.style.width = percent + '%';
+                
+                if (audio.ended) {
+                    clearInterval(podcastUpdateTimer);
+                    podcastPlaying = false;
+                    document.getElementById('podcast-play-icon').innerText = "▶";
+                }
+            }, 250);
+        }
+
+        // Simula cronômetro se o áudio falhar localmente
+        let simCurrentTime = 0;
+        const simTotalDuration = 1200; // 20 min
+        
+        function startPodcastTrackerSim() {
+            const currentT = document.getElementById('podcast-time-current');
+            const totalT = document.getElementById('podcast-time-total');
+            const progressB = document.getElementById('podcast-progress-bar');
+            
+            if (!currentT || !totalT || !progressB) return;
+            
+            totalT.innerText = formatPodcastTime(simTotalDuration);
+            
+            podcastUpdateTimer = setInterval(() => {
+                simCurrentTime += 1;
+                currentT.innerText = formatPodcastTime(simCurrentTime);
+                
+                const percent = (simCurrentTime / simTotalDuration) * 100;
+                progressB.style.width = percent + '%';
+                
+                if (simCurrentTime >= simTotalDuration) {
+                    clearInterval(podcastUpdateTimer);
+                    podcastPlaying = false;
+                    document.getElementById('podcast-play-icon').innerText = "▶";
+                    simCurrentTime = 0;
+                }
+            }, 1000);
+        }
+
+        function formatPodcastTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return (mins < 10 ? '0' : '') + mins + ':' + (secs < 10 ? '0' : '') + secs;
+        }
+
+        function seekPodcast(event) {
+            const audio = document.getElementById('podcast-audio-element');
+            if (!audio || audio.src === "" || isNaN(audio.duration)) return;
+            
+            const rect = event.currentTarget.getBoundingClientRect();
+            const clickX = event.clientX - rect.left;
+            const width = rect.width;
+            const percentage = clickX / width;
+            
+            audio.currentTime = audio.duration * percentage;
+        }
+
+        // PORTAL ROUTER ENGINE (PRINCIPAL)
+        function switchView(viewName) {
+            const materiaViewport = document.getElementById('materia-viewport');
+            const virtualViewport = document.getElementById('virtual-viewport');
+            
+            if (!materiaViewport || !virtualViewport) return;
+            
+            // Fechar menu mobile se estiver aberto
+            if (mobileMenuOpen) toggleMobileMenu();
+            
+            // Parar quaisquer reprodutores ativos de áudio nas trocas de abas
+            try {
+                const radioAudio = document.getElementById('radio-audio-element');
+                if (radioAudio) {
+                    radioAudio.pause();
+                    radioPlaying = false;
+                    clearInterval(radioWavesInterval);
+                }
+                const podcastAudio = document.getElementById('podcast-audio-element');
+                if (podcastAudio) {
+                    podcastAudio.pause();
+                    podcastPlaying = false;
+                    clearInterval(podcastUpdateTimer);
+                }
+            } catch(e){}
+
+            // Atualizar Estados dos Menus (Desktop e Mobile)
+            const menuIds = ['aovivo', 'radio', 'noticias', 'esporte', 'entretenimento', 'jazz', 'programas', 'grade', 'podcasts'];
+            menuIds.forEach(id => {
+                const desktopNav = document.getElementById('nav-' + id);
+                const mobileNav = document.getElementById('nav-mob-' + id);
+                
+                if (id === viewName) {
+                    if (desktopNav) {
+                        desktopNav.className = "text-cultura-cyan hover:text-white transition";
+                    }
+                    if (mobileNav) {
+                        mobileNav.className = "text-cultura-cyan hover:text-white transition py-1 border-b border-white/5 pb-1 font-black";
+                    }
+                } else {
+                    if (desktopNav) {
+                        desktopNav.className = "hover:text-cultura-cyan transition";
+                    }
+                    if (mobileNav) {
+                        mobileNav.className = "hover:text-cultura-cyan transition py-1 border-b border-white/5 pb-1";
+                    }
+                }
+            });
+
+            // Transição Suave visual
+            virtualViewport.style.opacity = '0';
+            virtualViewport.style.transform = 'translateY(10px)';
+            
+            setTimeout(() => {
+                if (viewName === 'noticias') {
+                    virtualViewport.classList.add('hidden');
+                    materiaViewport.classList.remove('hidden');
+                    
+                    const params = new URLSearchParams(window.location.search);
+                    const cinemaParam = params.get('cinema') || 'marquise';
+                    
+                    // Update URL browser state
+                    const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?cinema=' + cinemaParam;
+                    window.history.pushState({ path: newUrl }, '', newUrl);
+                    
+                } else {
+                    materiaViewport.classList.add('hidden');
+                    virtualViewport.classList.remove('hidden');
+                    
+                    // Injetar o layout da aba selecionada
+                    virtualViewport.innerHTML = viewTemplates[viewName] || `<div class="p-10 text-center font-bold text-gray-500 uppercase">Aba em Desenvolvimento</div>`;
+                    
+                    // Update URL browser state
+                    const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?view=' + viewName;
+                    window.history.pushState({ path: newUrl }, '', newUrl);
+                    
+                    // Animador inicializador
+                    virtualViewport.style.opacity = '1';
+                    virtualViewport.style.transform = 'translateY(0)';
+                }
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 150);
+        }
+
+        // INITIALIZER ENGINE
+        window.addEventListener('DOMContentLoaded', () => {
+            renderSidebar();
+            
+            const params = new URLSearchParams(window.location.search);
+            const cinemaParam = params.get('cinema');
+            const viewParam = params.get('view');
+            
+            if (viewParam && viewTemplates[viewParam]) {
+                switchView(viewParam);
+            } else if (cinemaParam && reportagens.some(rep => rep.id === cinemaParam)) {
+                switchView('noticias');
+                loadReportagem(cinemaParam);
+            } else {
+                switchView('noticias');
+                loadReportagem('marquise');
+            }
+        });
+    </script>
+</body>
+</html>

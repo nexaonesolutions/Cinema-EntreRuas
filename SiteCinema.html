@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema Entre Ruas | Por JayChouDev</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['Share Tech Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            yellow: '#FACC15',
+                            gold: '#EAB308',
+                            dark: '#09090b',
+                            card: '#18181b',
+                            border: 'rgba(255,255,255,0.08)'
+                        }
+                    },
+                    boxShadow: {
+                        'neon': '0 0 15px rgba(250, 204, 21, 0.3)',
+                        'neon-glow': '0 0 30px rgba(250, 204, 21, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .logo-dots {
+            background-image: radial-gradient(circle, #FACC15 1.5px, transparent 2px);
+            background-size: 6px 6px;
+            width: 8px;
+        }
+        section, main, footer {
+            scroll-margin-top: 5rem;
+        }
+        /* Custom dynamic ticket shapes */
+        .ticket-edge-left {
+            clip-path: radial-gradient(circle at left, transparent 12px, #18181b 13px);
+        }
+        .ticket-edge-right {
+            clip-path: radial-gradient(circle at right, transparent 12px, #18181b 13px);
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FACC15;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-100 font-sans antialiased overflow-x-hidden">
+
+    <!-- HEADER -->
+    <header class="w-full bg-brand-dark/80 border-b border-brand-border sticky top-0 z-50 shadow-lg backdrop-blur-md transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#home" class="flex items-stretch h-12 cursor-pointer group">
+                    <div class="logo-dots h-full mr-3 animate-pulse"></div>
+                    <div class="flex flex-col justify-center leading-none font-black text-xl tracking-tighter uppercase group-hover:text-brand-yellow transition-colors">
+                        <span class="text-white">Cinema</span>
+                        <span class="text-brand-yellow">Entre</span>
+                        <span class="text-white">Ruas</span>
+                    </div>
+                </a>
+
+                <!-- Navegação -->
+                <nav class="hidden lg:flex space-x-8 text-xs font-semibold uppercase tracking-widest text-gray-400">
+                    <a href="#home" class="hover:text-brand-yellow transition duration-300">Home</a>
+                    <a href="#sobre" class="hover:text-brand-yellow transition duration-300">Sobre</a>
+                    <a href="#cinematografo" class="hover:text-brand-yellow transition duration-300">Cinematógrafo</a>
+                    <a href="#mapa-interativo" class="hover:text-brand-yellow transition duration-300">Mapa</a>
+                    <a href="#conteudos" class="hover:text-brand-yellow transition duration-300">Destaque</a>
+                    <a href="#mural-memorias" class="hover:text-brand-yellow transition duration-300">Memórias</a>
+                    <a href="#contato" class="hover:text-brand-yellow transition duration-300">Contato</a>
+                </nav>
+
+                <!-- Ícones Direita -->
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-brand-yellow transition-all duration-300 transform hover:scale-115" onclick="showToast('Redirecionando para o Instagram do projeto...', 'info')">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-brand-yellow transition-all duration-300 transform hover:scale-115" onclick="showToast('Abrindo playlist oficial do projeto no Spotify...', 'info')">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 17.291c-.246.406-.777.534-1.183.288-3.242-1.98-7.324-2.427-12.133-1.328-.466.106-.924-.185-1.03-.651-.106-.465.185-.923.651-1.029 5.259-1.2 9.771-.703 13.402 1.517.407.247.535.778.293 1.203zm1.666-3.702c-.31.503-.96.657-1.463.348-3.719-2.285-9.426-2.955-13.687-1.615-.563.176-1.16-.134-1.336-.697-.176-.563.134-1.16.697-1.336 4.887-1.535 11.196-.78 15.438 1.838.504.309.658.959.351 1.462zm.12-3.864c-4.444-2.637-11.782-2.882-16.037-1.595-.67.202-1.385-.176-1.587-.847-.201-.67.177-1.385.847-1.587 4.869-1.472 12.981-1.191 18.066 1.823.593.351.789 1.116.438 1.709-.352.592-1.117.788-1.727.497z"/></svg>
+                    </a>
+                    <button onclick="openSearchModal()" class="bg-brand-yellow text-brand-dark p-2.5 rounded-full hover:bg-brand-gold transition duration-300 shadow-neon transform hover:scale-110" title="Buscar salas ou acervo (Ctrl + K)">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="bg-brand-dark text-white relative flex min-h-[70vh] md:min-h-[85vh] overflow-hidden items-center">
+        <!-- Ambient Blur Highlights -->
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-brand-yellow/10 rounded-full blur-3xl opacity-60"></div>
+        <div class="absolute bottom-10 right-10 w-[500px] h-[500px] bg-brand-gold/5 rounded-full blur-3xl opacity-40"></div>
+
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center w-full relative z-10 px-4 sm:px-6 lg:px-8">
+            <!-- Texto Hero -->
+            <div class="w-full md:w-1/2 py-16 md:py-24">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-yellow/30 bg-brand-yellow/5 text-brand-yellow text-xs font-bold uppercase tracking-widest mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brand-yellow animate-ping"></span> Arquivamento Urbano de SP
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-serif font-black leading-none mb-6 uppercase tracking-tight text-white">
+                    Histórias que <br> mantêm a cidade <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow to-brand-gold drop-shadow-sm">em cartaz.</span>
+                </h1>
+                <p class="text-gray-400 text-base md:text-lg mb-10 max-w-md font-medium leading-relaxed">
+                    Resgatamos a memória, a beleza arquitetônica e a resistência histórica dos antigos cinemas de rua de São Paulo.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#mapa-interativo" class="bg-brand-yellow text-brand-dark font-extrabold py-4 px-8 rounded shadow-neon hover:bg-brand-gold transition duration-300 flex items-center justify-center uppercase text-xs tracking-widest font-mono">
+                        Explorar o Mapa <span class="ml-2 font-black text-base leading-none">→</span>
+                    </a>
+                    <a href="#cinematografo" class="border border-white/20 text-white font-extrabold py-4 px-8 rounded hover:border-brand-yellow hover:text-brand-yellow transition duration-300 flex items-center justify-center uppercase text-xs tracking-widest font-mono bg-white/5 backdrop-blur-sm">
+                        Conhecer os cinemas
+                    </a>
+                </div>
+            </div>
+
+            <!-- Imagem Hero Premium -->
+            <div class="w-full md:w-1/2 h-[350px] md:h-[500px] relative overflow-hidden rounded-2xl border border-white/10 group mt-8 md:mt-0 shadow-2xl">
+                <!-- Overlay gradiente imersivo -->
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent z-10"></div>
+                <div class="absolute inset-0 bg-brand-dark/40 z-10 mix-blend-multiply"></div>
+                <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Cine Marquise" class="w-full h-full object-cover object-center grayscale opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700">
+                
+                <div class="absolute bottom-8 right-8 z-20">
+                     <button onclick="openAcervoModal()" class="w-24 h-24 rounded-full border border-brand-yellow/50 bg-black/60 flex flex-col items-center justify-center text-[9px] font-black tracking-widest hover:border-brand-yellow hover:text-brand-yellow transition-all duration-300 backdrop-blur-md text-brand-yellow hover:bg-black/80 hover:scale-110 shadow-neon">
+                        <span class="text-base mb-0.5 font-mono font-extrabold text-brand-yellow">+</span>
+                        <span class="text-center font-mono uppercase tracking-wider leading-snug">VER<br>ACERVO</span>
+                     </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BARRA DE RECURSOS (ÍCONES) -->
+    <section class="border-y border-brand-border bg-brand-dark/40 py-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-sm">
+                
+                <a href="#mapa-interativo" class="flex items-start space-x-3 group cursor-pointer p-3 rounded-xl hover:bg-white/5 transition-all duration-300">
+                    <div class="text-2xl group-hover:scale-110 transition duration-300">🗺️</div>
+                    <div>
+                        <h3 class="font-extrabold uppercase text-white tracking-wider group-hover:text-brand-yellow transition text-xs font-mono">Mapa SP</h3>
+                        <p class="text-gray-400 text-[10px] leading-snug mt-1">Navegação cartográfica</p>
+                    </div>
+                </a>
+                
+                <a href="#cinematografo" class="flex items-start space-x-3 lg:border-l border-white/10 lg:pl-6 group cursor-pointer p-3 rounded-xl hover:bg-white/5 transition-all duration-300">
+                    <div class="text-2xl group-hover:scale-110 transition duration-300">🎬</div>
+                    <div>
+                        <h3 class="font-extrabold uppercase text-white tracking-wider group-hover:text-brand-yellow transition text-xs font-mono">Cinemas</h3>
+                        <p class="text-gray-400 text-[10px] leading-snug mt-1">Diretório completo</p>
+                    </div>
+                </a>
+
+                <a href="#mapa-interativo" class="flex items-start space-x-3 lg:border-l border-white/10 lg:pl-6 group cursor-pointer p-3 rounded-xl hover:bg-white/5 transition-all duration-300">
+                    <div class="text-2xl group-hover:scale-110 transition duration-300">📅</div>
+                    <div>
+                        <h3 class="font-extrabold uppercase text-white tracking-wider group-hover:text-brand-yellow transition text-xs font-mono">Agenda</h3>
+                        <p class="text-gray-400 text-[10px] leading-snug mt-1">Mostras e exibições</p>
+                    </div>
+                </a>
+
+                <a href="#conteudos" class="flex items-start space-x-3 lg:border-l border-white/10 lg:pl-6 group cursor-pointer p-3 rounded-xl hover:bg-white/5 transition-all duration-300">
+                    <div class="text-2xl group-hover:scale-110 transition duration-300">▶️</div>
+                    <div>
+                        <h3 class="font-extrabold uppercase text-white tracking-wider group-hover:text-brand-yellow transition text-xs font-mono">Vídeos</h3>
+                        <p class="text-gray-400 text-[10px] leading-snug mt-1">Mini-documentários</p>
+                    </div>
+                </a>
+
+                <a href="BlogCinemas.html?view=podcasts" target="_blank" class="flex items-start space-x-3 lg:border-l border-white/10 lg:pl-6 group cursor-pointer p-3 rounded-xl hover:bg-white/5 transition-all duration-300">
+                    <div class="text-2xl group-hover:scale-110 transition duration-300">🎙️</div>
+                    <div>
+                        <h3 class="font-extrabold uppercase text-white tracking-wider group-hover:text-brand-yellow transition text-xs font-mono">Podcast</h3>
+                        <p class="text-gray-400 text-[10px] leading-snug mt-1">Sessões Virtuais TV Cultura</p>
+                    </div>
+                </a>
+
+                <a href="#mural-memorias" class="flex items-start space-x-3 lg:border-l border-white/10 lg:pl-6 group cursor-pointer p-3 rounded-xl hover:bg-white/5 transition-all duration-300">
+                    <div class="text-2xl group-hover:scale-110 transition duration-300">✍️</div>
+                    <div>
+                        <h3 class="font-extrabold uppercase text-white tracking-wider group-hover:text-brand-yellow transition text-xs font-mono">Memória</h3>
+                        <p class="text-gray-400 text-[10px] leading-snug mt-1">Escreva seu relato</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE O PROJETO -->
+    <section id="sobre" class="py-24 bg-brand-dark relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-dark via-brand-dark/80 to-[#121214] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-16 relative z-10">
+            <div class="w-full lg:w-1/2">
+                <h2 class="text-xs font-extrabold uppercase mb-4 text-brand-yellow tracking-widest flex items-center font-mono">
+                    <span class="w-8 h-0.5 bg-brand-yellow mr-3"></span> O Manifesto
+                </h2>
+                <h3 class="text-4xl md:text-5xl font-serif font-black uppercase leading-tight mb-8 text-white">
+                    Resgatando a alma <br>cinematográfica <br>de São Paulo.
+                </h3>
+                <p class="text-gray-300 mb-6 leading-relaxed font-medium text-sm md:text-base">
+                    O <strong>Cinema Entre Ruas</strong> é um projeto universitário dedicado a mapear, preservar e celebrar os cinemas de rua da capital paulista. Acreditamos que estes espaços são mais do que salas de exibição; são patrimônios históricos e pontos de encontro que moldaram a identidade cultural urbana.
+                </p>
+                <p class="text-gray-400 mb-8 leading-relaxed text-xs md:text-sm">
+                    Através do nosso acervo digital (organizado neste site), podcast e rotas guiadas, conectamos os cinéfilos não apenas com a era de ouro, mas também com filmes contemporâneos em cartaz pelas ruas da capital paulista.
+                </p>
+                <a href="#mural-memorias" class="inline-block border-b-2 border-brand-yellow text-brand-yellow font-extrabold uppercase text-xs font-mono tracking-widest pb-1 hover:text-white hover:border-white transition duration-300">
+                    Apoie e Deixe sua Memória →
+                </a>
+            </div>
+            <div class="w-full lg:w-1/2 relative">
+                <!-- Efeito de moldura brutalista -->
+                <div class="absolute inset-0 bg-brand-yellow/10 translate-x-4 translate-y-4 rounded-xl border border-brand-yellow/20"></div>
+                <div class="relative h-[500px] rounded-xl overflow-hidden shadow-2xl border border-white/10 group">
+                    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Projetor Antigo" class="absolute inset-0 w-full h-full object-cover grayscale opacity-75 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-transparent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CINEMATÓGRAFO (Catálogo de Cinemas) -->
+    <section id="cinematografo" class="py-24 bg-[#121214] border-t border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b border-brand-border pb-8">
+                <div>
+                    <h2 class="text-xs font-extrabold uppercase mb-4 text-brand-yellow tracking-widest flex items-center font-mono">
+                        <span class="w-8 h-0.5 bg-brand-yellow mr-3"></span> Cinematógrafo
+                    </h2>
+                    <h3 class="text-4xl md:text-5xl font-serif font-black uppercase leading-tight text-white">Acervo Histórico</h3>
+                </div>
+                
+                <!-- Filtros Dinâmicos -->
+                <div class="mt-6 md:mt-0 flex gap-2 p-1.5 bg-brand-dark border border-white/10 rounded-lg">
+                    <button onclick="filterCinemas('all')" id="filter-all" class="px-4 py-2 text-[10px] font-extrabold uppercase font-mono tracking-widest rounded-md bg-brand-yellow text-brand-dark transition duration-300">Todos</button>
+                    <button onclick="filterCinemas('active')" id="filter-active" class="px-4 py-2 text-[10px] font-extrabold uppercase font-mono tracking-widest rounded-md text-gray-400 hover:text-white transition duration-300">Ativos</button>
+                    <button onclick="filterCinemas('historic')" id="filter-historic" class="px-4 py-2 text-[10px] font-extrabold uppercase font-mono tracking-widest rounded-md text-gray-400 hover:text-white transition duration-300">Históricos</button>
+                </div>
+            </div>
+
+            <!-- Grid Dinâmico de Cinemas -->
+            <div id="cinemas-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Renderizado via JavaScript de forma dinâmica e segura -->
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPA INTERATIVO & HUD -->
+    <section id="mapa-interativo" class="py-24 bg-brand-dark border-t border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <h2 class="text-xs font-extrabold uppercase mb-4 text-brand-yellow tracking-widest flex items-center font-mono">
+                    <span class="w-8 h-0.5 bg-brand-yellow mr-3"></span> Cartografia Cultural
+                </h2>
+                <h3 class="text-4xl md:text-5xl font-serif font-black uppercase leading-tight text-white">Mapa de SP</h3>
+                <p class="text-gray-400 text-sm mt-3 font-medium">Selecione um cinema no mapa para carregar seus registros históricos no painel de controle lateral.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+                <!-- Coluna 1: O Mapa SVG Interativo -->
+                <div class="lg:col-span-7 flex flex-col justify-between">
+                    <div class="relative w-full h-[480px] bg-[#121214] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                        
+                        <!-- HUD Básica do Mapa -->
+                        <div class="absolute top-4 left-4 bg-brand-dark/95 border border-white/10 px-4 py-2 rounded-lg text-[9px] font-mono font-bold tracking-widest uppercase text-brand-yellow backdrop-blur-md z-20">
+                            São Paulo • Centro Expandido
+                        </div>
+
+                        <!-- Gráfico SVG Vetorial de Ruas (Slick Dark Design) -->
+                        <div class="absolute inset-0 w-full h-full">
+                            <svg viewBox="0 0 500 400" class="w-full h-full text-white/5 select-none opacity-40">
+                                <defs>
+                                    <pattern id="map-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                                        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+                                    </pattern>
+                                </defs>
+                                <rect width="100%" height="100%" fill="url(#map-grid)" />
+                                
+                                <!-- Avenidas Principais -->
+                                <path d="M 50,330 L 450,170" stroke="rgba(250,204,21,0.15)" stroke-width="6" stroke-linecap="round" />
+                                <path d="M 50,330 L 450,170" stroke="#FACC15" stroke-width="1" stroke-dasharray="3 6" stroke-opacity="0.3" stroke-linecap="round" />
+                                
+                                <path d="M 120,380 L 320,40" stroke="rgba(255,255,255,0.08)" stroke-width="4" stroke-linecap="round" />
+                                <path d="M 60,280 L 260,20" stroke="rgba(255,255,255,0.08)" stroke-width="4" stroke-linecap="round" />
+                                <path d="M 200,90 L 420,120" stroke="rgba(255,255,255,0.08)" stroke-width="5" stroke-linecap="round" />
+                                <path d="M 220,130 L 440,70" stroke="rgba(255,255,255,0.08)" stroke-width="4" stroke-linecap="round" />
+
+                                <!-- Conexão Cultural -->
+                                <path d="M 120,300 L 220,180 L 320,105" stroke="#FACC15" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 6" opacity="0.2" />
+                            </svg>
+                        </div>
+
+                        <!-- Pinos do Mapa Inteiramente Interativos (HTML Buttons) -->
+                        <div class="absolute inset-0 z-10 pointer-events-none">
+                            
+                            <!-- Cine Marquise -->
+                            <button id="pin-marquise" onclick="selectCinema('marquise')" class="absolute pointer-events-auto group transform -translate-x-1/2 -translate-y-1/2" style="left: 72%; top: 50%;" title="Cine Marquise">
+                                <span class="flex h-5 w-5 relative items-center justify-center">
+                                    <span id="ping-marquise" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow opacity-75"></span>
+                                    <span id="dot-marquise" class="relative inline-flex rounded-full h-3.5 w-3.5 bg-brand-yellow border-2 border-brand-dark shadow-neon group-hover:scale-125 transition duration-300"></span>
+                                </span>
+                            </button>
+
+                            <!-- CineSesc -->
+                            <button id="pin-sesc" onclick="selectCinema('sesc')" class="absolute pointer-events-auto group transform -translate-x-1/2 -translate-y-1/2" style="left: 47%; top: 44%;" title="CineSesc">
+                                <span class="flex h-5 w-5 relative items-center justify-center">
+                                    <span id="ping-sesc" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow opacity-75"></span>
+                                    <span id="dot-sesc" class="relative inline-flex rounded-full h-3.5 w-3.5 bg-brand-yellow border-2 border-brand-dark shadow-neon group-hover:scale-125 transition duration-300"></span>
+                                </span>
+                            </button>
+
+                            <!-- Belas Artes -->
+                            <button id="pin-belas-artes" onclick="selectCinema('belas-artes')" class="absolute pointer-events-auto group transform -translate-x-1/2 -translate-y-1/2" style="left: 34%; top: 48%;" title="Cine Petra Belas Artes">
+                                <span class="flex h-5 w-5 relative items-center justify-center">
+                                    <span id="ping-belas-artes" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow opacity-75"></span>
+                                    <span id="dot-belas-artes" class="relative inline-flex rounded-full h-3.5 w-3.5 bg-brand-yellow border-2 border-brand-dark shadow-neon group-hover:scale-125 transition duration-300"></span>
+                                </span>
+                            </button>
+
+                            <!-- Cine Marrocos -->
+                            <button id="pin-marrocos" onclick="selectCinema('marrocos')" class="absolute pointer-events-auto group transform -translate-x-1/2 -translate-y-1/2" style="left: 60%; top: 22%;" title="Cine Marrocos">
+                                <span class="flex h-5 w-5 relative items-center justify-center">
+                                    <span id="ping-marrocos" class="absolute inline-flex h-full w-full rounded-full bg-brand-yellow opacity-0"></span>
+                                    <span id="dot-marrocos" class="relative inline-flex rounded-full h-3.5 w-3.5 bg-gray-500 border-2 border-brand-dark group-hover:scale-125 transition duration-300 group-hover:bg-brand-yellow"></span>
+                                </span>
+                            </button>
+
+                            <!-- Cine Ipiranga -->
+                            <button id="pin-ipiranga" onclick="selectCinema('ipiranga')" class="absolute pointer-events-auto group transform -translate-x-1/2 -translate-y-1/2" style="left: 75%; top: 18%;" title="Cine Ipiranga">
+                                <span class="flex h-5 w-5 relative items-center justify-center">
+                                    <span id="ping-ipiranga" class="absolute inline-flex h-full w-full rounded-full bg-brand-yellow opacity-0"></span>
+                                    <span id="dot-ipiranga" class="relative inline-flex rounded-full h-3.5 w-3.5 bg-gray-500 border-2 border-brand-dark group-hover:scale-125 transition duration-300 group-hover:bg-brand-yellow"></span>
+                                </span>
+                            </button>
+
+                            <!-- Cine Windsor -->
+                            <button id="pin-windsor" onclick="selectCinema('windsor')" class="absolute pointer-events-auto group transform -translate-x-1/2 -translate-y-1/2" style="left: 53%; top: 23%;" title="Cine Windsor">
+                                <span class="flex h-5 w-5 relative items-center justify-center">
+                                    <span id="ping-windsor" class="absolute inline-flex h-full w-full rounded-full bg-brand-yellow opacity-0"></span>
+                                    <span id="dot-windsor" class="relative inline-flex rounded-full h-3.5 w-3.5 bg-gray-500 border-2 border-brand-dark group-hover:scale-125 transition duration-300 group-hover:bg-brand-yellow"></span>
+                                </span>
+                            </button>
+
+                        </div>
+
+                        <!-- Legenda Integrada -->
+                        <div class="absolute bottom-4 left-4 right-4 bg-brand-dark/95 border border-white/10 p-4 rounded-xl backdrop-blur-md z-20 flex justify-between items-center text-[10px] font-bold tracking-widest uppercase">
+                            <div class="flex items-center"><div class="w-3 h-3 bg-brand-yellow rounded-full mr-2 shadow-neon animate-pulse"></div> Ativos</div>
+                            <div class="flex items-center"><div class="w-3 h-3 bg-gray-500 rounded-full mr-2"></div> Fechados / Históricos</div>
+                            <div class="text-gray-400 font-mono hidden sm:block">Clique para selecionar</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna 2: HUD Lateral Informativo Dinâmico -->
+                <div class="lg:col-span-5">
+                    <div id="map-hud" class="bg-[#121214] border border-white/10 rounded-2xl p-5 h-full lg:h-[480px] flex flex-col justify-between shadow-2xl relative overflow-hidden transition-all duration-500">
+                        <!-- Conteúdo injetado via Javascript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTEÚDO PRINCIPAL (Destaques, Agenda) -->
+    <main id="conteudos" class="bg-[#121214] py-24 border-t border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                
+                <!-- Destaque Audiovisual -->
+                <div class="lg:col-span-6 flex flex-col">
+                    <h2 class="text-xs font-extrabold uppercase mb-6 text-white tracking-widest font-mono flex items-center">
+                        <span class="w-3 h-3 bg-brand-yellow rounded-full mr-2 shadow-neon animate-ping"></span> Destaque Audiovisual
+                    </h2>
+                    <a href="https://www.youtube.com/watch?v=4MCPrwlcf5o" target="_blank" class="bg-brand-dark text-white rounded-2xl overflow-hidden shadow-2xl border border-white/10 relative group h-[450px] w-full cursor-pointer flex-grow block">
+                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cinema" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-all duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                        <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                            <span class="text-brand-yellow text-[10px] font-extrabold font-mono uppercase tracking-widest mb-3">Mini-documentário Exclusivo</span>
+                            <h3 class="text-3xl font-serif font-black uppercase mb-4 leading-tight">Circuito Spcine: Calçadas Acesa</h3>
+                            <p class="text-gray-300 text-sm mb-6 leading-relaxed">Exploramos a iniciativa pública que mantém a projeção viva em salas do centro e nas periferias, promovendo o acesso cultural democrático.</p>
+                            <div class="bg-brand-yellow text-brand-dark font-extrabold text-xs font-mono py-3.5 px-6 rounded hover:bg-brand-gold transition duration-300 uppercase tracking-widest flex items-center justify-center w-max shadow-neon">
+                                <svg class="w-4 h-4 mr-2.5 fill-current" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"></path></svg>
+                                Iniciar Projeção
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Agenda Semanal -->
+                <div class="lg:col-span-6 flex flex-col">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xs font-extrabold uppercase text-white tracking-widest font-mono">Agenda da Semana</h2>
+                        <a href="#" onclick="showToast('Abrindo calendário mensal completo...', 'info')" class="text-[10px] font-extrabold uppercase font-mono text-gray-400 hover:text-brand-yellow transition">Ver Todos </a>
+                    </div>
+                    
+                    <div class="bg-brand-dark border border-white/10 rounded-2xl flex flex-col h-[450px] overflow-hidden shadow-2xl justify-between">
+                        <!-- Item 1 -->
+                        <div onclick="showToast('Mostra Clássicos Paulistanos: 24/05 às 16h no CineSesc.', 'info')" class="flex items-center p-6 border-b border-white/5 hover:bg-white/5 transition duration-300 group cursor-pointer flex-grow">
+                            <div class="text-center mr-6 min-w-[50px]">
+                                <div class="text-brand-yellow font-mono font-black text-3xl leading-none">24</div>
+                                <div class="text-gray-400 text-[9px] font-bold uppercase tracking-widest mt-1">Mai</div>
+                            </div>
+                            <div class="flex-grow">
+                                <span class="text-[8px] font-mono font-bold text-brand-yellow uppercase tracking-widest block mb-1">Mostra Retrospectiva</span>
+                                <h4 class="font-extrabold text-white text-sm uppercase tracking-wide leading-snug mb-1 group-hover:text-brand-yellow transition">Clássicos Paulistanos</h4>
+                                <p class="text-xs text-gray-400 font-mono">📍 CineSesc • 16h00</p>
+                            </div>
+                            <div class="text-gray-600 group-hover:text-brand-yellow transition font-black text-2xl transform group-hover:translate-x-1 font-mono">›</div>
+                        </div>
+                        
+                        <!-- Item 2 -->
+                        <div onclick="showToast('Mesa Redonda: Preservação e Memória Urbana no Reserva Cultural às 19:30h.', 'info')" class="flex items-center p-6 border-b border-white/5 hover:bg-white/5 transition duration-300 group cursor-pointer flex-grow">
+                            <div class="text-center mr-6 min-w-[50px]">
+                                <div class="text-brand-yellow font-mono font-black text-3xl leading-none">31</div>
+                                <div class="text-gray-400 text-[9px] font-bold uppercase tracking-widest mt-1">Mai</div>
+                            </div>
+                            <div class="flex-grow">
+                                <span class="text-[8px] font-mono font-bold text-brand-yellow uppercase tracking-widest block mb-1">Mesa Redonda</span>
+                                <h4 class="font-extrabold text-white text-sm uppercase tracking-wide leading-snug mb-1 group-hover:text-brand-yellow transition">Preservação e Memória Urbana</h4>
+                                <p class="text-xs text-gray-400 font-mono">📍 Reserva Cultural • 19h30</p>
+                            </div>
+                            <div class="text-gray-600 group-hover:text-brand-yellow transition font-black text-2xl transform group-hover:translate-x-1 font-mono">›</div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div onclick="showToast('Sessão Cinema Nacional: 07/06 às 18h no Cine Marquise.', 'info')" class="flex items-center p-6 hover:bg-white/5 transition duration-300 group cursor-pointer flex-grow">
+                            <div class="text-center mr-6 min-w-[50px]">
+                                <div class="text-brand-yellow font-mono font-black text-3xl leading-none">07</div>
+                                <div class="text-gray-400 text-[9px] font-bold uppercase tracking-widest mt-1">Jun</div>
+                            </div>
+                            <div class="flex-grow">
+                                <span class="text-[8px] font-mono font-bold text-brand-yellow uppercase tracking-widest block mb-1">Exibição Especial</span>
+                                <h4 class="font-extrabold text-white text-sm uppercase tracking-wide leading-snug mb-1 group-hover:text-brand-yellow transition">Sessão Cinema Nacional</h4>
+                                <p class="text-xs text-gray-400 font-mono">📍 Cine Marquise • 18h00</p>
+                            </div>
+                            <div class="text-gray-600 group-hover:text-brand-yellow transition font-black text-2xl transform group-hover:translate-x-1 font-mono">›</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- MURAL DE MEMÓRIAS ("SUA MEMÓRIA") -->
+    <section id="mural-memorias" class="py-24 bg-brand-dark border-t border-brand-border relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row justify-between items-stretch gap-16">
+                <!-- Coluna Esquerda: Formulário tipo Bilhete Retrô -->
+                <div class="w-full lg:w-5/12 flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-xs font-extrabold uppercase mb-4 text-brand-yellow tracking-widest flex items-center font-mono">
+                            <span class="w-8 h-0.5 bg-brand-yellow mr-3"></span> Partilhe sua História
+                        </h2>
+                        <h3 class="text-4xl font-serif font-black uppercase leading-tight text-white mb-6">Mural de<br>Memórias</h3>
+                        <p class="text-gray-400 text-sm mb-10 leading-relaxed font-medium">Os cinemas de rua de antigamente marcaram sua vida? Compartilhe seus relatos e ajude a construir este acervo afetivo coletivo da capital.</p>
+                    </div>
+
+                    <!-- Ticket Form Container -->
+                    <div class="relative bg-brand-card rounded-2xl border border-white/10 p-8 shadow-2xl flex flex-col overflow-hidden">
+                        <!-- Cuts de ticket retro -->
+                        <div class="absolute -left-3 top-1/2 w-6 h-6 bg-brand-dark rounded-full border-r border-white/10"></div>
+                        <div class="absolute -right-3 top-1/2 w-6 h-6 bg-brand-dark rounded-full border-l border-white/10"></div>
+                        
+                        <div class="text-center pb-6 border-b border-dashed border-white/10 mb-6">
+                            <span class="font-mono text-[9px] uppercase tracking-[0.25em] text-brand-yellow font-extrabold">BILHETE DE ENTRADA / HISTÓRIA</span>
+                        </div>
+
+                        <form onsubmit="handleMemorySubmit(event)" id="memory-form" class="space-y-4">
+                            <div>
+                                <label for="form-name" class="block font-mono text-[9px] uppercase tracking-widest text-gray-400 font-extrabold mb-1.5">Seu Nome</label>
+                                <input type="text" id="form-name" required placeholder="Ex: Carlos Alberto" maxlength="40" class="bg-brand-dark/50 border border-white/10 rounded-md px-4 py-2.5 text-sm w-full focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow text-white font-medium transition">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label for="form-cinema" class="block font-mono text-[9px] uppercase tracking-widest text-gray-400 font-extrabold mb-1.5">Qual Cinema?</label>
+                                    <select id="form-cinema" required class="bg-brand-dark/50 border border-white/10 rounded-md px-3 py-2.5 text-sm w-full focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow text-white font-medium transition">
+                                        <option value="Cine Marquise">Cine Marquise</option>
+                                        <option value="CineSesc">CineSesc</option>
+                                        <option value="Cine Petra Belas Artes">Belas Artes</option>
+                                        <option value="Cine Marrocos">Cine Marrocos</option>
+                                        <option value="Cine Ipiranga">Cine Ipiranga</option>
+                                        <option value="Cine Windsor">Cine Windsor</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="form-year" class="block font-mono text-[9px] uppercase tracking-widest text-gray-400 font-extrabold mb-1.5">Ano (Aprox.)</label>
+                                    <input type="number" id="form-year" required placeholder="Ex: 1982" min="1900" max="2026" class="bg-brand-dark/50 border border-white/10 rounded-md px-4 py-2.5 text-sm w-full focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow text-white font-medium transition">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="form-mood" class="block font-mono text-[9px] uppercase tracking-widest text-gray-400 font-extrabold mb-1.5">Sentimento</label>
+                                <select id="form-mood" required class="bg-brand-dark/50 border border-white/10 rounded-md px-3 py-2.5 text-sm w-full focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow text-white font-medium transition">
+                                    <option value="Nostálgico">Nostálgico</option>
+                                    <option value="Saudoso">Saudoso</option>
+                                    <option value="Alegre">Alegre</option>
+                                    <option value="Apaixonado">Apaixonado</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="form-text" class="block font-mono text-[9px] uppercase tracking-widest text-gray-400 font-extrabold mb-1.5">Seu Relato</label>
+                                <textarea id="form-text" required placeholder="Escreva aqui sua memória mais querida deste cinema de calçada..." rows="3" maxlength="300" class="bg-brand-dark/50 border border-white/10 rounded-md px-4 py-2.5 text-sm w-full focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow text-white font-medium transition resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="bg-brand-yellow text-brand-dark font-mono font-black text-xs px-6 py-4 rounded-lg hover:bg-brand-gold transition duration-300 uppercase tracking-widest w-full shadow-neon">
+                                Validar & Imprimir Ticket
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Renderizador de Tickets Masonry -->
+                <div class="w-full lg:w-7/12">
+                    <span class="block font-mono text-[10px] uppercase tracking-widest text-gray-400 font-extrabold mb-6">Mural Coletivo Registrado</span>
+                    <div id="mural-tickets" class="grid grid-cols-1 md:grid-cols-2 gap-6 max-h-[700px] overflow-y-auto pr-2 scrollbar-hide">
+                        <!-- Renderizado via Javascript de forma reativa -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTATO -->
+    <footer id="contato" class="bg-brand-dark border-t border-brand-border pt-20 pb-10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-10 border-b border-white/10 pb-12 mb-10">
+                
+                <div class="w-full lg:w-1/3">
+                    <div class="flex items-stretch h-10 mb-4">
+                        <div class="logo-dots h-full mr-3 animate-pulse"></div>
+                        <div class="flex flex-col justify-center leading-none font-black text-lg tracking-tighter uppercase">
+                            <span class="text-white">Cinema</span>
+                            <span class="text-brand-yellow">Entre</span>
+                            <span class="text-white">Ruas</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed font-medium">
+                        Um projeto independente focado no mapeamento urbano e preservação da história afetiva das grandes salas de projeção de São Paulo. O cinema não morreu.
+                    </p>
+                </div>
+
+                <!-- Newsletter Segura -->
+                <div class="flex items-start sm:items-center w-full lg:w-auto flex-col sm:flex-row bg-[#121214] p-6 rounded-xl border border-white/10 shadow-2xl">
+                    <div class="text-4xl sm:mr-5 mb-4 sm:mb-0 text-brand-yellow filter drop-shadow-sm">🎟️</div>
+                    <div class="sm:mr-8 mb-4 sm:mb-0">
+                        <h4 class="font-extrabold text-sm uppercase text-white tracking-wide mb-1 font-mono">Clube de Membros</h4>
+                        <p class="text-xs text-gray-400 font-medium leading-relaxed">Cadastre-se para receber avisos sobre rotas guiadas <br class="hidden sm:block"> e debates culturais.</p>
+                    </div>
+                    <form onsubmit="handleNewsletter(event)" class="flex w-full sm:w-auto mt-2 sm:mt-0 border border-white/10 rounded-md overflow-hidden bg-brand-dark">
+                        <input type="email" id="newsletter-email" required placeholder="Seu e-mail principal" class="bg-transparent px-4 py-3 text-sm w-full sm:w-64 focus:outline-none text-white transition">
+                        <button type="submit" class="bg-brand-yellow text-brand-dark font-extrabold text-xs font-mono px-6 py-3 hover:bg-brand-gold transition uppercase tracking-widest shadow-neon">
+                            Entrar
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Links e Copyright -->
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
+                <div class="flex items-center space-x-5 text-gray-500 text-xs">
+                    <span class="font-mono text-[9px] uppercase tracking-widest text-gray-500 font-extrabold">Redes</span>
+                    <a href="#" class="hover:text-brand-yellow transition">Instagram</a>
+                    <a href="#" class="hover:text-brand-yellow transition">Spotify</a>
+                    <a href="#" class="hover:text-brand-yellow transition">YouTube</a>
+                </div>
+                
+                <div class="flex flex-wrap gap-x-6 gap-y-2 text-[9px] text-gray-500 font-extrabold uppercase font-mono tracking-widest">
+                    <a href="BlogCinemas.html" target="_blank" class="hover:text-brand-yellow text-brand-yellow font-bold transition">Conhecer Blog dos cinemas 🎟️</a>
+                    <a href="#sobre" class="hover:text-white transition">Manifesto</a>
+                    <a href="#" onclick="showToast('Termos de Uso em desenvolvimento...', 'info')" class="hover:text-white transition">Termos</a>
+                    <a href="#" onclick="showToast('Canal de acessibilidade configurado.', 'success')" class="hover:text-white transition">Acessibilidade</a>
+                    <a href="#" class="hover:text-brand-yellow transition">Apoiar</a>
+                </div>
+                
+                <div class="text-[10px] text-gray-500 font-medium text-center lg:text-right font-mono uppercase tracking-wider">
+                    <p>© 2026 Cinema Entre Ruas. Todos os direitos reservados.</p>
+                    <p class="mt-1">Codificado por <a href="https://github.com/JayChouDev" target="_blank" class="text-white hover:text-brand-yellow font-extrabold transition">JayChouDev</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DE ACERVO FOTOGRÁFICO HISTÓRICO (LIGHTBOX PREMIUM) -->
+    <div id="acervo-modal" class="fixed inset-0 z-[150] flex flex-col items-center justify-center bg-black/95 backdrop-blur-2xl opacity-0 pointer-events-none transition-all duration-500">
+        <!-- Close Button -->
+        <button onclick="closeAcervoModal()" class="absolute top-6 right-6 text-gray-400 hover:text-brand-yellow text-4xl font-light transition duration-300 z-[160] focus:outline-none">
+            &times;
+        </button>
+
+        <div class="max-w-6xl w-full px-6 flex flex-col h-[85vh] justify-between relative">
+            <!-- Header do Modal -->
+            <div class="mb-4 text-center">
+                <span class="font-mono text-[9px] uppercase tracking-[0.25em] text-brand-yellow font-extrabold block mb-1">ARQUIVO DE MEMÓRIA VISUAL DE SÃO PAULO</span>
+                <h3 class="text-2xl font-serif font-black uppercase text-white tracking-wide">Acervo Fotográfico Histórico</h3>
+            </div>
+
+            <!-- Visualizador Central -->
+            <div class="flex-grow flex flex-col md:flex-row items-center justify-between gap-8 h-3/5 relative group">
+                <!-- Botão Anterior -->
+                <button onclick="navigateAcervo(-1)" class="absolute left-2 md:relative md:left-0 bg-brand-dark/80 hover:bg-brand-yellow hover:text-brand-dark border border-white/10 text-white rounded-full w-12 h-12 flex items-center justify-center transition duration-300 z-10 shadow-neon">
+                    <span class="text-xl font-bold leading-none">‹</span>
+                </button>
+
+                <!-- Foto Container -->
+                <div class="w-full md:w-3/4 h-full relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex items-center justify-center bg-black">
+                    <img id="acervo-img" src="" alt="" class="max-w-full max-h-full object-contain transition-all duration-500 opacity-0 scale-95">
+                    
+                    <!-- Ano Flutuante -->
+                    <div id="acervo-year" class="absolute top-4 left-4 bg-brand-yellow text-brand-dark font-mono font-black text-xs px-3 py-1.5 rounded shadow-neon uppercase tracking-widest">
+                        1954
+                    </div>
+                </div>
+
+                <!-- Detalhes do Acervo (Ao lado no Desktop, embaixo no Mobile) -->
+                <div class="w-full md:w-1/4 flex flex-col justify-between h-auto md:h-full text-left bg-brand-card/50 p-6 rounded-xl border border-white/5 backdrop-blur-md">
+                    <div>
+                        <span id="acervo-tag" class="text-brand-yellow font-mono text-[8px] font-black uppercase tracking-widest block mb-2">CINE MARROCOS</span>
+                        <h4 id="acervo-title" class="text-xl font-serif font-black text-white uppercase leading-tight mb-3">Escadaria de Mármore</h4>
+                        <p id="acervo-desc" class="text-xs text-gray-300 leading-relaxed font-medium mb-6">Descrição da imagem.</p>
+                    </div>
+                    <div class="border-t border-white/10 pt-4 mt-auto">
+                        <span class="block font-mono text-[7px] text-gray-500 uppercase tracking-widest mb-1">Origem / Acervo</span>
+                        <span id="acervo-credits" class="text-[10px] font-mono text-gray-300 font-bold">Acervo Ricardo Calil / Divulgação</span>
+                    </div>
+                </div>
+
+                <!-- Botão Próximo -->
+                <button onclick="navigateAcervo(1)" class="absolute right-2 md:relative md:right-0 bg-brand-dark/80 hover:bg-brand-yellow hover:text-brand-dark border border-white/10 text-white rounded-full w-12 h-12 flex items-center justify-center transition duration-300 z-10 shadow-neon">
+                    <span class="text-xl font-bold leading-none">›</span>
+                </button>
+            </div>
+
+            <!-- Miniaturas Inferiores para Navegação Rápida -->
+            <div class="h-20 border-t border-white/10 pt-4 flex gap-4 overflow-x-auto justify-center scrollbar-hide">
+                <!-- Miniaturas serão injetadas via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE BUSCA SPOTLIGHT DE ALTA FIDELIDADE -->
+    <div id="search-modal" class="fixed inset-0 z-[200] flex items-start justify-center pt-[12vh] px-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
+        <div class="max-w-2xl w-full bg-[#121214] border border-white/10 rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(250,204,21,0.2)] transform scale-95 transition-all duration-300 flex flex-col max-h-[70vh]">
+            
+            <!-- Campo de Busca Principal -->
+            <div class="flex items-center px-4 py-4 border-b border-white/10 relative shrink-0">
+                <svg class="w-5 h-5 text-gray-400 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                <input type="text" id="search-input" oninput="handleSearch(this.value)" placeholder="Buscar por cinema, bairro, história ou acervo..." class="bg-transparent text-white placeholder-gray-500 text-sm focus:outline-none w-full pr-16 font-sans font-medium" autocomplete="off" />
+                
+                <!-- Teclas de atalho flutuantes -->
+                <div class="absolute right-4 flex items-center space-x-1.5 pointer-events-none">
+                    <kbd class="px-1.5 py-0.5 rounded bg-zinc-800 text-[9px] font-mono text-gray-400 font-bold border border-zinc-700 shadow-md">ESC</kbd>
+                </div>
+            </div>
+
+            <!-- Scrollable Resultados -->
+            <div id="search-results" class="flex-grow overflow-y-auto p-4 space-y-6 scrollbar-hide max-h-[480px]">
+                <!-- Injetado via Javascript: Sugestões (Vazio) ou Resultados -->
+            </div>
+
+            <!-- Footer do Spotlight -->
+            <div class="px-4 py-3 bg-[#18181b] border-t border-white/10 flex justify-between items-center text-[9px] font-bold text-gray-500 font-mono tracking-widest shrink-0">
+                <div class="flex items-center gap-3">
+                    <span><kbd class="px-1 py-0.5 bg-zinc-900 rounded border border-zinc-700">↑↓</kbd> Navegar</span>
+                    <span><kbd class="px-1 py-0.5 bg-zinc-900 rounded border border-zinc-700">Enter</kbd> Selecionar</span>
+                </div>
+                <span>Cinema Entre Ruas</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sistema de Notificações Toast -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-[100] flex flex-col gap-2"></div>
+
+    <script>
+        // DATA OBJECTS (Cinemas)
+        const cinemas = [
+            {
+                id: "marquise",
+                name: "Cine Marquise",
+                status: "active",
+                statusLabel: "Cinema Ativo",
+                address: "Av. Paulista, 2073 (Conjunto Nacional) - Consolação",
+                description: "Localizado no Conjunto Nacional, na Avenida Paulista, o Cine Marquise faz parte de uma longa tradição cultural da cidade, resistindo desde 1963.",
+                history: "Inaugurado originalmente como Cine Rio, o local tinha cerca de 500 lugares e exibia principalmente filmes comerciais. Em 1978, um incêndio atingiu o prédio do Conjunto e, apesar de não terem notícias quanto a interrupção das sessões, este foi o marco para transformações e reformas do cinema. A partir dos anos 1980, o cinema passou a integrar o circuito CineArte, sendo rebatizado como CineArte Um, e ao longo das décadas seguintes mudou diversas vezes de nome e gestão, incluindo fases como Cine Bombril, Cine Livraria Cultura e CineArte Petrobras refletindo as dificuldades e adaptações típicas dos cinemas de rua diante da concorrência com shoppings e mudanças no consumo de filmes após os anos 2000. Em 2020, o espaço fechou as portas durante a pandemia, mas foi reaberto em 2021 totalmente renovado e com o nome atual, Cine Marquise, trazendo uma proposta que combina modernização — com salas reformadas, som de alta qualidade e maior conforto — com a preservação de sua vocação cultural, exibindo tanto filmes comerciais quanto produções independentes, mostras e eventos especiais. Por isso, o Cine Marquise representa hoje a continuidade de mais de seis décadas de história cinematográfica na cidade, sendo um example de resistência e reinvenção dos cinemas de rua paulistanos.",
+                photo: "https://images.unsplash.com/photo-1595769816263-9b910be24d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                credits: "Acervo Spcine / Foto: Divulgação"
+            },
+            {
+                id: "sesc",
+                name: "CineSesc",
+                status: "active",
+                statusLabel: "Cinema Ativo",
+                address: "Rua Augusta, 2075 - Cerqueira César",
+                description: "O CineSesc é um dos cinemas de rua mais antigos e queridos da cidade de São Paulo. Localizado na Rua Augusta, 2075, abriu as portas com esse nome no dia 21 de setembro de 1979.",
+                history: "Tendo como primeiro objetivo exibir filmes de vários países, apoiar o cinema nacional e fazer o público conversar sobre arte. No final de 1969, o espaço começou a funcionar como Cine Orly. A ideia era passar filmes de arte, mas o negócio fechou poucos anos depois. Em 1975, o local foi reaberto com o nome de Cinema 1, essa iniciativa também durou pouco tempo e a sala novamente foi fechada. Com a compra do local pelo Serviço Social do Comércio, o Sesc, todo o prédio foi reformado para criação do CineSesc. Desde o início, sua proposta foi de ser uma alternativa aos cinemas comuns. Por isso, a programação foca em mostras especiais, festivais e filmes independentes que quase não passam em outros lugares. Sendo muito elogiado pelo conforto e pelos preços baixos. Ao longo dos anos, o espaço ganhou vários prêmios importantes de jornais e guias, que destacam sua curadoria e acessibilidade. Hoje, além da sala física, a instituição também exibe filmes online de graça na plataforma Sesc Digital.",
+                photo: "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                credits: "CineSesc SP / Foto: Divulgação"
+            },
+            {
+                id: "belas-artes",
+                name: "Cine Petra Belas Artes",
+                status: "active",
+                statusLabel: "Cinema Ativo",
+                address: "Rua da Consolação, 2423 - Consolação",
+                description: "Um dos cinemas de rua mais tradicionais e amados de São Paulo. Conhecido pela resistência cultural e pelas icônicas sessões da madrugada do Noitão.",
+                history: "Fundado em 1943, o Belas Artes sobreviveu a ameaças de demolição e fechamentos temporários, salvo sempre pela mobilização popular e tombamento histórico. Possui salas com nomes de diretores consagrados.",
+                photo: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                credits: "Petra Belas Artes / Foto: Divulgação"
+            },
+            {
+                id: "marrocos",
+                name: "Cine Marrocos",
+                status: "historic",
+                statusLabel: "Histórico / Fechado",
+                address: "Rua Conselheiro Crispiniano, 344 - República",
+                description: "O Cine Marrocos foi inaugurado no dia 25 de janeiro de 1951, com o título de \"o maior e mais luxuoso cinema da América Latina\", na Rua Conselheiro Crispiniano, no coração de São Paulo.",
+                history: "O lugar era impressionante, com uma linda escadaria de mármore branco, grandes colunas, espelhos e até uma fonte luminosa perto das bilheterias. A decoração foi toda inspirada nas famosas histórias do livro \"As Mil e Uma Noites\". O cinema viveu seu momento de maior glória em 1954. Naquele ano, São Paulo comemorava seus 400 anos e o local foi escolhido para sediar o primeiro festival internacional de cinema do Brasil. Astros importantes de Hollywood e da Europa vieram para o evento. Filmes clássicos e inesquecíveis foram exibidos na grande tela do Marrocos nesse período. Com o passar do tempo, o centro da cidade mudou e o cinema perdeu público, encerrando suas atividades em 1994. O prédio foi comprado pela Prefeitura de São Paulo em 2010, mas ficou fechado e sem uso por muitos anos. Por causa disso, em novembro de 2013, centenas de famílias sem-teto e refugiados ocuparam o edifício para ter um lugar onde morar. Eles viveram no local até outubro de 2016, tendo saído após uma ordem na Justiça. Essa ocupação chamou a atenção do diretor de cinema Ricardo Calil. Ele reuniu os moradores para reabrir a sala de projeção que estava trancada. Juntos, eles assistiram aos mesmos filmes do festival de 1954 e criaram peças de teatro baseadas nessas histórias. Essa experiência virou um famoso documentário chamado Cine Marrocos, lançado em 2019, que mostra o encontro do passado luxuoso com a realidade atual do local.",
+                photo: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                credits: "Acervo Ricardo Calil / Divulgação"
+            },
+            {
+                id: "ipiranga",
+                name: "Cine Ipiranga",
+                status: "historic",
+                statusLabel: "Histórico / Fechado",
+                address: "Av. Ipiranga, 786 - República",
+                description: "Uma obra-prima da arquitetura modernista projetada por Rino Levi em 1943. Fechado em 2005, seu suntuoso interior e volumetria monumental ainda contam histórias da antiga Cinelândia.",
+                history: "Parte fundamental da 'Cinelândia' paulistana que dominava o centro da capital, o Cine Ipiranga possuía uma acústica revolucionária para a época e layout luxuoso. Atualmente, o edifício é tombado pela prefeitura.",
+                photo: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                credits: "Acervo Histórico de São Paulo / SMC"
+            },
+            {
+                id: "windsor",
+                name: "Cine Windsor",
+                status: "historic",
+                statusLabel: "Histórico / Fechado",
+                address: "Av. Ipiranga, 974 - República",
+                description: "Inaugurado em 1953 com a exibição de superproduções de Hollywood. Hoje desativado, representa a ascensão e o declínio das megasalas monumentais do centro de São Paulo.",
+                history: "Com mais de 1.500 lugares, o Windsor era famoso pela enorme tela de projeção e carpetes vermelhos suntuosos. Com a migração do público para shoppings nos anos 80, foi desativado e convertido para uso comercial.",
+                photo: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                credits: "Memória Paulista / Divulgação"
+            }
+        ];
+
+        // ACERVO HISTÓRICO FOTOS DATA
+        const acervoFotos = [
+            {
+                cinemaId: "marquise",
+                title: "Inauguração do Cine Rio (1963)",
+                desc: "Fachada original do Cine Rio no Conjunto Nacional recém-inaugurado na Avenida Paulista, exibindo grandes produções comerciais da época.",
+                url: "https://images.unsplash.com/photo-1595769816263-9b910be24d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                year: "1963",
+                credits: "Acervo Spcine / Memória Paulista"
+            },
+            {
+                cinemaId: "marquise",
+                title: "Cine Marquise Renovado (Atual)",
+                desc: "Interior da sala premium com poltronas confortáveis e tecnologia de projeção a laser de última geração, preservando o espírito de rua na Paulista.",
+                url: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                year: "2026",
+                credits: "Divulgação Cine Marquise"
+            },
+            {
+                cinemaId: "sesc",
+                title: "CineSesc Augusta nos Anos 80",
+                desc: "A clássica fachada amarela e letreiro iluminado do CineSesc na icônica Rua Augusta, ponto focal dos cinéfilos paulistanos.",
+                url: "https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                year: "1984",
+                credits: "Acervo Histórico Sesc SP"
+            },
+            {
+                cinemaId: "belas-artes",
+                title: "Fila do Noitão no Belas Artes",
+                desc: "Espectadores aguardando na calçada da Rua da Consolação para as tradicionais sessões da madrugada do Belas Artes, conhecidas como Noitão.",
+                url: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                year: "1992",
+                credits: "Acervo Petra Belas Artes"
+            },
+            {
+                cinemaId: "marrocos",
+                title: "Cine Marrocos - A Era de Ouro (1954)",
+                desc: "A monumental escadaria de mármore e a suntuosa fonte luminosa interna inspirada nas 'Mil e Uma Noites' durante o Festival Internacional de Cinema de 1954.",
+                url: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                year: "1954",
+                credits: "Acervo SMC / Arquivo Histórico de São Paulo"
+            },
+            {
+                cinemaId: "ipiranga",
+                title: "Fachada Modernista do Cine Ipiranga",
+                desc: "A volumetria monumental de concreto e vidro da entrada principal do Cine Ipiranga, projetada por Rino Levi, no centro da antiga Cinelândia.",
+                url: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                year: "1943",
+                credits: "SMC / Acervo de Obras de Arte de SP"
+            },
+            {
+                cinemaId: "windsor",
+                title: "Cine Windsor - Megasala de Projeção",
+                desc: "Visão das poltronas vermelhas e da gigantesca tela panorâmica do Cine Windsor na Avenida Ipiranga, antes de sua desativação.",
+                url: "https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                year: "1953",
+                credits: "Memória da Cinelândia Paulista"
+            }
+        ];
+
+        // DEFAULT MEMORIES (Loaded if LocalStorage is empty)
+        const defaultMemories = [
+            {
+                name: "Carlos Augusto",
+                cinema: "Cine Petra Belas Artes",
+                year: 1985,
+                text: "Me lembro até hoje do cheiro de pipoca e da fila imensa que dava a volta no quarteirão da Consolação para ver a estreia do clássico 'Blade Runner'. Inesquecível!",
+                mood: "Nostálgico"
+            },
+            {
+                name: "Beatriz M.",
+                cinema: "CineSesc",
+                year: 2012,
+                text: "O bar do CineSesc é o melhor lugar de SP para bater papo sobre cinema francês após as mostras. Minhas melhores amizades de faculdade nasceram ali.",
+                mood: "Alegre"
+            },
+            {
+                name: "Renato Silva",
+                cinema: "Cine Marrocos",
+                year: 1974,
+                text: "Meu pai me levou de terno para ver um festival internacional lá dentro. Aquele teto dourado e as fontes luminosas pareciam um palácio real. É muito triste ver fechado.",
+                mood: "Saudoso"
+            }
+        ];
+
+        // STATE MANAGER
+        let currentFilter = 'all';
+        let activeCinemaId = 'marquise';
+        let memories = [];
+
+        // TOAST SYSTEM
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            const baseClass = "transform transition-all duration-300 translate-y-10 opacity-0 px-6 py-3.5 rounded-lg shadow-2xl font-mono font-bold text-xs flex items-center gap-3 border border-white/10";
+            let typeClass = "";
+            let icon = "🔔";
+            
+            if (type === 'success') {
+                typeClass = "bg-brand-dark/95 text-brand-yellow border border-brand-yellow/50 shadow-neon-glow";
+                icon = "<span class='text-pink-500 filter drop-shadow-[0_0_8px_rgba(236,72,153,0.6)]'>🎟️</span>";
+            } else if (type === 'warning') {
+                typeClass = "bg-brand-dark/95 text-red-400 border-red-500 shadow-[0_0_15px_rgba(239,68,68,0.15)]";
+                icon = "⚠️";
+            } else {
+                typeClass = "bg-[#121214]/95 text-white border-white/20";
+                icon = "📽️";
+            }
+            
+            toast.className = `${baseClass} ${typeClass}`;
+            toast.innerHTML = `<span class="text-base">${icon}</span> <span>${message}</span>`;
+            
+            container.appendChild(toast);
+            
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-y-10', 'opacity-0');
+            });
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-10', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        // SECOP ENGINE (Strict Anti-XSS Sanitizer)
+        function sanitizeHTML(str) {
+            if (!str) return '';
+            return str.replace(/[&<>"']/g, function(m) {
+                return {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#039;'
+                }[m];
+            });
+        }
+
+        // RENDER CATÁLOGO (Cinematógrafo)
+        function renderDirectory() {
+            const grid = document.getElementById('cinemas-grid');
+            grid.innerHTML = '';
+            
+            const filtered = cinemas.filter(c => currentFilter === 'all' || c.status === currentFilter);
+            
+            filtered.forEach(c => {
+                const isActive = c.status === 'active';
+                const tagClass = isActive ? "bg-brand-yellow text-brand-dark shadow-neon" : "bg-zinc-800 text-zinc-400";
+                
+                const card = document.createElement('div');
+                card.className = "group cursor-pointer bg-brand-dark border border-white/10 rounded-2xl overflow-hidden hover:border-brand-yellow/40 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl shadow-lg";
+                card.onclick = () => selectCinema(c.id);
+                
+                card.innerHTML = `
+                    <div class="h-60 overflow-hidden relative border-b border-white/10">
+                        <img src="${c.photo}" alt="${c.name}" class="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105">
+                        <div class="absolute top-4 left-4 ${tagClass} text-[9px] font-mono font-black uppercase px-3 py-1.5 rounded tracking-widest">
+                            ${c.statusLabel}
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-2xl font-serif font-black uppercase mb-2 group-hover:text-brand-yellow transition duration-300 text-white">${c.name}</h4>
+                        <p class="text-xs font-mono text-gray-500 mb-3">${c.address}</p>
+                        <p class="text-xs text-gray-400 mb-5 leading-relaxed line-clamp-2">${c.description}</p>
+                        <span class="text-brand-yellow font-mono text-[9px] font-bold uppercase tracking-widest flex items-center group-hover:translate-x-1.5 transition-all">
+                            Ver nos Detalhes / Mapa <span class="ml-1.5 font-sans">→</span>
+                        </span>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // FILTER CONTROL
+        function filterCinemas(type) {
+            currentFilter = type;
+            
+            // Toggle active classes in buttons
+            ['all', 'active', 'historic'].forEach(t => {
+                const btn = document.getElementById(`filter-all`);
+                const activeBtn = document.getElementById(`filter-${t}`);
+                if (t === type) {
+                    activeBtn.className = "px-4 py-2 text-[10px] font-extrabold uppercase font-mono tracking-widest rounded-md bg-brand-yellow text-brand-dark transition duration-300 shadow-neon";
+                } else {
+                    activeBtn.className = "px-4 py-2 text-[10px] font-extrabold uppercase font-mono tracking-widest rounded-md text-gray-400 hover:text-white transition duration-300";
+                }
+            });
+            
+            renderDirectory();
+            showToast(`Exibindo cinemas: ${type === 'all' ? 'todos' : type === 'active' ? 'ativos' : 'históricos'}`, 'info');
+        }
+
+        // HUD CONTROL & SYNCHRONIZATION
+        function selectCinema(id) {
+            const cinema = cinemas.find(c => c.id === id);
+            if (!cinema) return;
+            
+            activeCinemaId = id;
+            const hud = document.getElementById('map-hud');
+            
+            // Efeito visual de recarregamento
+            hud.style.opacity = '0.3';
+
+            // 1. Atualizar Destaques no Mapa (Highlight active pin)
+            cinemas.forEach(c => {
+                const ping = document.getElementById(`ping-${c.id}`);
+                const dot = document.getElementById(`dot-${c.id}`);
+                if (ping && dot) {
+                    if (c.id === id) {
+                        ping.className = "animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow opacity-100 scale-150";
+                        dot.className = "relative inline-flex rounded-full h-5 w-5 bg-brand-yellow border-2 border-white shadow-neon scale-125 transition duration-300";
+                    } else {
+                        if (c.status === 'active') {
+                            ping.className = "animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow opacity-75";
+                            dot.className = "relative inline-flex rounded-full h-3.5 w-3.5 bg-brand-yellow border-2 border-brand-dark shadow-neon group-hover:scale-125 transition duration-300 group-hover:bg-brand-yellow";
+                        } else {
+                            ping.className = "absolute inline-flex h-full w-full rounded-full bg-brand-yellow opacity-0";
+                            dot.className = "relative inline-flex rounded-full h-3.5 w-3.5 bg-gray-500 border-2 border-brand-dark group-hover:scale-125 transition duration-300 group-hover:bg-brand-yellow";
+                        }
+                    }
+                }
+            });
+            
+            setTimeout(() => {
+                const isActive = cinema.status === 'active';
+                const tagClass = isActive ? "bg-brand-yellow text-brand-dark shadow-neon" : "bg-zinc-800 text-zinc-400";
+                
+                hud.innerHTML = `
+                    <div class="relative flex flex-col h-full justify-between">
+                        <div>
+                            <!-- Imagem do cinema no HUD com marca d'água de créditos -->
+                            <div class="h-32 rounded-xl overflow-hidden mb-4 relative border border-white/10 shadow-lg shrink-0">
+                                <img src="${cinema.photo}" alt="${cinema.name}" class="w-full h-full object-cover opacity-85 hover:opacity-100 transition duration-500">
+                                <div class="absolute top-3 left-3 ${tagClass} text-[7px] font-sans font-black uppercase px-2 py-1 rounded tracking-widest">
+                                    ${cinema.statusLabel}
+                                </div>
+                                <div class="absolute bottom-2 right-2 bg-brand-dark/95 border border-white/10 px-2 py-0.5 rounded text-[8px] font-sans font-semibold text-gray-400 tracking-wider backdrop-blur-sm shadow-md">
+                                    📷 ${cinema.credits}
+                                </div>
+                            </div>
+
+                            <span class="block font-sans text-[9px] uppercase tracking-widest text-brand-yellow/90 font-black mb-1 shrink-0">DETALHES CARTOGRÁFICOS</span>
+                            <h4 class="text-xl md:text-2xl font-serif font-black uppercase leading-tight text-white mb-1 shrink-0">${cinema.name}</h4>
+                            <p class="text-[11px] font-sans font-semibold text-gray-400 flex items-center gap-1 mb-3 shrink-0">📍 ${cinema.address}</p>
+                            
+                            <!-- Scrollable Content Block with premium styled typography -->
+                            <div class="border-t border-white/5 pt-3 overflow-y-auto max-h-[140px] pr-2 text-[13px] leading-relaxed text-gray-300 font-sans font-medium space-y-3">
+                                <p>${cinema.description}</p>
+                                <p class="border-l-2 border-brand-yellow/40 pl-3 text-xs text-gray-400 leading-relaxed font-sans font-medium">${cinema.history}</p>
+                            </div>
+                        </div>
+
+                        <!-- Side-by-side buttons for elegant layout (clean text, no emojis) -->
+                        <div class="mt-4 border-t border-white/10 pt-4 grid grid-cols-2 gap-3 shrink-0">
+                            <button onclick="window.open('BlogCinemas.html?cinema=' + encodeURIComponent('${cinema.id}'), '_blank')" class="bg-brand-yellow text-brand-dark hover:bg-brand-gold w-full py-3 rounded-lg text-[10px] font-sans font-black uppercase tracking-widest transition duration-300 flex items-center justify-center shadow-neon hover:scale-[1.02]">
+                                HISTÓRIA
+                            </button>
+                            <button onclick="window.open('https://www.google.com/maps/search/?api=1&amp;query=' + encodeURIComponent('${cinema.name} ${cinema.address}'), '_blank')" class="bg-brand-dark hover:bg-brand-yellow hover:text-brand-dark text-white border border-white/10 hover:border-brand-yellow w-full py-3 rounded-lg text-[10px] font-sans font-black uppercase tracking-widest transition duration-300 flex items-center justify-center hover:scale-[1.02]">
+                                ROTA GPS
+                            </button>
+                        </div>
+                    </div>
+                `;
+                hud.style.opacity = '1';
+                
+                // Rolar suavemente para a seção do HUD
+                document.getElementById('mapa-interativo').scrollIntoView({ behavior: 'smooth' });
+            }, 250);
+        }
+
+        // MEMORY SYSTEM ENGINE
+        function loadMemories() {
+            const raw = localStorage.getItem('cinema_memories');
+            if (raw) {
+                try {
+                    memories = JSON.parse(raw);
+                } catch (e) {
+                    memories = [...defaultMemories];
+                }
+            } else {
+                memories = [...defaultMemories];
+                localStorage.setItem('cinema_memories', JSON.stringify(memories));
+            }
+            renderMemories();
+        }
+
+        function renderMemories() {
+            const container = document.getElementById('mural-tickets');
+            container.innerHTML = '';
+            
+            // Exibir memórias da mais nova para a mais antiga
+            const list = [...memories].reverse();
+            
+            list.forEach(m => {
+                const sName = sanitizeHTML(m.name);
+                const sCinema = sanitizeHTML(m.cinema);
+                const sText = sanitizeHTML(m.text);
+                const sMood = sanitizeHTML(m.mood);
+                const sYear = parseInt(m.year) || 1990;
+                
+                const ticket = document.createElement('div');
+                ticket.className = "relative bg-[#18181b] border border-white/10 p-6 rounded-xl shadow-lg flex flex-col justify-between overflow-hidden ticket-edge-left ticket-edge-right transform hover:scale-[1.02] transition duration-300";
+                ticket.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-center pb-3 mb-3 border-b border-dashed border-white/10">
+                            <span class="font-mono text-[8px] uppercase tracking-widest text-brand-yellow font-extrabold">TICKET #${sYear}</span>
+                            <span class="font-mono text-[8px] uppercase tracking-widest text-gray-500 font-extrabold">${sMood}</span>
+                        </div>
+                        <p class="text-xs text-gray-300 italic mb-5 leading-relaxed">"${sText}"</p>
+                    </div>
+                    <div class="flex justify-between items-end border-t border-dashed border-white/10 pt-3 mt-2">
+                        <div>
+                            <span class="block font-mono text-[7px] text-gray-500 uppercase tracking-widest">Espectador</span>
+                            <span class="font-extrabold text-white text-xs">${sName}</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="block font-mono text-[7px] text-gray-500 uppercase tracking-widest">Sala</span>
+                            <span class="font-mono text-brand-yellow font-extrabold text-[10px]">${sCinema}</span>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(ticket);
+            });
+        }
+
+        function handleMemorySubmit(e) {
+            e.preventDefault();
+            const nameInput = document.getElementById('form-name');
+            const cinemaInput = document.getElementById('form-cinema');
+            const yearInput = document.getElementById('form-year');
+            const moodInput = document.getElementById('form-mood');
+            const textInput = document.getElementById('form-text');
+            
+            const name = nameInput.value.trim();
+            const cinema = cinemaInput.value;
+            const year = parseInt(yearInput.value);
+            const mood = moodInput.value;
+            const text = textInput.value.trim();
+            
+            // Validations
+            if (year < 1900 || year > 2026) {
+                showToast('O ano deve estar compreendido entre 1900 e 2026.', 'warning');
+                return;
+            }
+            if (name.length < 3 || text.length < 10) {
+                showToast('Preencha os campos com informações válidas.', 'warning');
+                return;
+            }
+            
+            const newMemory = { name, cinema, year, text, mood };
+            
+            // Push & Save
+            memories.push(newMemory);
+            localStorage.setItem('cinema_memories', JSON.stringify(memories));
+            
+            // Render and Clear
+            renderMemories();
+            showToast('Memória registrada! Seu bilhete foi impresso no mural.', 'success');
+            
+            nameInput.value = '';
+            yearInput.value = '';
+            textInput.value = '';
+        }
+
+        // NEWSLETTER ENGINE
+        function handleNewsletter(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('newsletter-email');
+            const email = emailInput.value.trim();
+            if (email && email.includes('@')) {
+                showToast('Inscrição confirmada! Bem-vindo ao clube de preservação.', 'success');
+                emailInput.value = '';
+            } else {
+                showToast('Por favor, digite um e-mail válido.', 'warning');
+            }
+        }
+
+        // ACERVO HISTÓRICO ENGINE
+        let currentAcervoIndex = 0;
+
+        function openAcervoModal(cinemaId = null) {
+            const modal = document.getElementById('acervo-modal');
+            
+            // Se passar um cinemaId, podemos filtrar e abrir direto na primeira imagem daquele cinema
+            if (cinemaId) {
+                const idx = acervoFotos.findIndex(f => f.cinemaId === cinemaId);
+                if (idx !== -1) currentAcervoIndex = idx;
+            } else {
+                currentAcervoIndex = 0;
+            }
+
+            renderAcervoThumbnails();
+            showAcervoImage(currentAcervoIndex);
+            
+            modal.classList.remove('pointer-events-none', 'opacity-0');
+            modal.classList.add('opacity-100');
+            document.body.style.overflow = 'hidden';
+            
+            showToast('Explorando arquivos fotográficos...', 'success');
+        }
+
+        function closeAcervoModal() {
+            const modal = document.getElementById('acervo-modal');
+            modal.classList.remove('opacity-100');
+            modal.classList.add('pointer-events-none', 'opacity-0');
+            document.body.style.overflow = '';
+        }
+
+        function showAcervoImage(index) {
+            currentAcervoIndex = index;
+            const item = acervoFotos[index];
+            if (!item) return;
+
+            const img = document.getElementById('acervo-img');
+            const title = document.getElementById('acervo-title');
+            const desc = document.getElementById('acervo-desc');
+            const credits = document.getElementById('acervo-credits');
+            const year = document.getElementById('acervo-year');
+            const tag = document.getElementById('acervo-tag');
+
+            // Efeito visual de transição suave
+            img.style.opacity = '0';
+            img.style.transform = 'scale(0.95)';
+
+            setTimeout(() => {
+                img.src = item.url;
+                img.alt = item.title;
+                title.innerText = item.title.toUpperCase();
+                desc.innerText = item.desc;
+                credits.innerText = item.credits;
+                year.innerText = item.year;
+                
+                const cinemaObj = cinemas.find(c => c.id === item.cinemaId);
+                tag.innerText = cinemaObj ? cinemaObj.name.toUpperCase() : "ACERVO";
+
+                img.style.opacity = '1';
+                img.style.transform = 'scale(1)';
+
+                // Highlight miniaturas
+                const thumbs = document.querySelectorAll('.thumb-item');
+                thumbs.forEach((t, idx) => {
+                    if (idx === index) {
+                        t.classList.add('border-brand-yellow', 'scale-105', 'opacity-100');
+                        t.classList.remove('border-white/10', 'opacity-40');
+                    } else {
+                        t.classList.remove('border-brand-yellow', 'scale-105', 'opacity-100');
+                        t.classList.add('border-white/10', 'opacity-40');
+                    }
+                });
+            }, 250);
+        }
+
+        function navigateAcervo(direction) {
+            let nextIndex = currentAcervoIndex + direction;
+            if (nextIndex >= acervoFotos.length) nextIndex = 0;
+            if (nextIndex < 0) nextIndex = acervoFotos.length - 1;
+            showAcervoImage(nextIndex);
+        }
+
+        function renderAcervoThumbnails() {
+            const container = document.querySelector('#acervo-modal div.h-20');
+            container.innerHTML = '';
+
+            acervoFotos.forEach((item, idx) => {
+                const thumb = document.createElement('button');
+                thumb.className = "thumb-item w-16 h-12 rounded border border-white/10 overflow-hidden transition-all duration-300 opacity-40 hover:opacity-100 shrink-0";
+                thumb.onclick = () => showAcervoImage(idx);
+                thumb.innerHTML = `<img src="${item.url}" alt="${item.title}" class="w-full h-full object-cover">`;
+                container.appendChild(thumb);
+            });
+        }
+
+        // SPOTLIGHT SEARCH SYSTEM
+        let selectedSearchResultIndex = -1;
+
+        function openSearchModal() {
+            const modal = document.getElementById('search-modal');
+            const container = modal.querySelector('div.max-w-2xl');
+            const input = document.getElementById('search-input');
+            
+            modal.classList.remove('pointer-events-none', 'opacity-0');
+            modal.classList.add('opacity-100');
+            
+            container.classList.remove('scale-95');
+            container.classList.add('scale-100');
+            
+            document.body.style.overflow = 'hidden';
+            
+            // Focus input immediately
+            setTimeout(() => {
+                input.value = '';
+                input.focus();
+                handleSearch('');
+            }, 100);
+        }
+
+        function closeSearchModal() {
+            const modal = document.getElementById('search-modal');
+            const container = modal.querySelector('div.max-w-2xl');
+            
+            container.classList.remove('scale-100');
+            container.classList.add('scale-95');
+            
+            modal.classList.remove('opacity-100');
+            modal.classList.add('pointer-events-none', 'opacity-0');
+            
+            document.body.style.overflow = '';
+        }
+
+        function handleSearch(query) {
+            const resultsContainer = document.getElementById('search-results');
+            resultsContainer.innerHTML = '';
+            selectedSearchResultIndex = -1;
+            
+            const normalizedQuery = query.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            
+            if (normalizedQuery === '') {
+                // RENDER EMPTY STATE SUGGESTIONS
+                resultsContainer.innerHTML = `
+                    <div class="space-y-6">
+                        <div>
+                            <span class="block font-mono text-[8px] uppercase tracking-[0.2em] text-gray-500 font-extrabold mb-3">Pesquisas Populares</span>
+                            <div class="flex flex-wrap gap-2">
+                                <button onclick="setSearchValue('Paulista')" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-sans font-semibold text-xs border border-white/5 transition">📍 Paulista</button>
+                                <button onclick="setSearchValue('Augusta')" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-sans font-semibold text-xs border border-white/5 transition">📍 Augusta</button>
+                                <button onclick="setSearchValue('Rino Levi')" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-sans font-semibold text-xs border border-white/5 transition">📐 Rino Levi</button>
+                                <button onclick="setSearchValue('Ativo')" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-sans font-semibold text-xs border border-white/5 transition">🎟️ Cinemas Ativos</button>
+                                <button onclick="setSearchValue('Histórico')" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-sans font-semibold text-xs border border-white/5 transition">📽️ Cinemas Históricos</button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <span class="block font-mono text-[8px] uppercase tracking-[0.2em] text-gray-500 font-extrabold mb-3">Cinema em Destaque</span>
+                            <div onclick="selectCinema('marquise'); closeSearchModal();" class="search-item border border-white/5 rounded-xl bg-zinc-900/60 p-3 hover:bg-white/5 hover:border-white/10 transition-all duration-300 cursor-pointer flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-white/10">
+                                    <img src="https://images.unsplash.com/photo-1595769816263-9b910be24d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover grayscale" />
+                                </div>
+                                <div class="flex-grow block truncate">
+                                    <div class="flex items-center gap-2">
+                                        <span class="font-serif font-black text-sm uppercase text-white leading-none">Cine Marquise</span>
+                                        <span class="bg-brand-yellow text-brand-dark font-sans text-[7px] font-black uppercase px-1 rounded">ATIVO</span>
+                                    </div>
+                                    <span class="block text-[10px] text-gray-500 font-sans font-semibold mt-1">Av. Paulista, 2073 (Conjunto Nacional)</span>
+                                </div>
+                                <span class="text-zinc-600 font-mono text-xs leading-none">Ir →</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+            
+            // SEARCH LOGIC
+            const matchedCinemas = cinemas.filter(c => {
+                const name = c.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                const addr = c.address.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                const desc = c.description.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                const hist = c.history.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                const status = c.statusLabel.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                
+                return name.includes(normalizedQuery) ||
+                       addr.includes(normalizedQuery) ||
+                       desc.includes(normalizedQuery) ||
+                       hist.includes(normalizedQuery) ||
+                       status.includes(normalizedQuery);
+            });
+            
+            const matchedPhotos = acervoFotos.filter(p => {
+                const title = p.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                const desc = p.desc.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                const creds = p.credits.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                const year = p.year.toString();
+                
+                const cinemaObj = cinemas.find(c => c.id === p.cinemaId);
+                const cinemaName = cinemaObj ? cinemaObj.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") : "";
+                
+                return title.includes(normalizedQuery) ||
+                       desc.includes(normalizedQuery) ||
+                       creds.includes(normalizedQuery) ||
+                       year.includes(normalizedQuery) ||
+                       cinemaName.includes(normalizedQuery);
+            });
+            
+            if (matchedCinemas.length === 0 && matchedPhotos.length === 0) {
+                // RENDER NO RESULTS STATE
+                resultsContainer.innerHTML = `
+                    <div class="text-center py-10 flex flex-col items-center justify-center">
+                        <span class="text-3xl filter drop-shadow-[0_0_8px_rgba(250,204,21,0.3)] mb-4">📽️</span>
+                        <h5 class="font-serif font-black text-sm uppercase text-white mb-2">Nenhum registro encontrado</h5>
+                        <p class="text-xs text-gray-500 font-sans font-medium leading-relaxed max-w-sm">Não localizamos correspondência para "${sanitizeHTML(query)}". Tente termos como "Paulista", "Rino Levi" ou "Noitão".</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '';
+            
+            // 1. Render matched cinemas
+            if (matchedCinemas.length > 0) {
+                html += `
+                    <div>
+                        <span class="block font-mono text-[8px] uppercase tracking-[0.2em] text-gray-500 font-extrabold mb-3">Salas de Cinema (${matchedCinemas.length})</span>
+                        <div class="space-y-2">
+                `;
+                
+                matchedCinemas.forEach(c => {
+                    const isActive = c.status === 'active';
+                    const tagClass = isActive ? "bg-brand-yellow text-brand-dark" : "bg-zinc-800 text-zinc-500";
+                    const safeName = sanitizeHTML(c.name);
+                    const safeAddress = sanitizeHTML(c.address);
+                    const snippet = getSnippet(c.description + ' ' + c.history, query);
+                    
+                    html += `
+                        <div onclick="selectCinema('${c.id}'); closeSearchModal(); showToast('Navegando para ${safeName}...', 'success');" class="search-item border border-transparent rounded-xl p-3 hover:bg-white/5 hover:border-white/10 transition-all cursor-pointer flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-white/10 bg-zinc-950">
+                                <img src="${c.photo}" class="w-full h-full object-cover grayscale" />
+                            </div>
+                            <div class="flex-grow min-w-0">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-serif font-black text-sm uppercase text-white leading-none truncate">${safeName}</span>
+                                    <span class="${tagClass} font-sans text-[7px] font-black uppercase px-1 rounded shrink-0">${c.statusLabel.split(' ')[0]}</span>
+                                </div>
+                                <span class="block text-[10px] text-gray-400 font-sans font-semibold mt-1 truncate">${safeAddress}</span>
+                                <p class="text-[9px] text-gray-500 font-sans font-medium mt-1 truncate italic">"${snippet}"</p>
+                            </div>
+                            <span class="text-zinc-600 font-mono text-xs leading-none shrink-0">Ir →</span>
+                        </div>
+                    `;
+                });
+                
+                html += `
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // 2. Render matched photos
+            if (matchedPhotos.length > 0) {
+                html += `
+                    <div class="mt-6">
+                        <span class="block font-mono text-[8px] uppercase tracking-[0.2em] text-gray-500 font-extrabold mb-3">Imagens do Acervo Histórico (${matchedPhotos.length})</span>
+                        <div class="space-y-2">
+                `;
+                
+                matchedPhotos.forEach(p => {
+                    const safeTitle = sanitizeHTML(p.title);
+                    const cinemaObj = cinemas.find(c => c.id === p.cinemaId);
+                    const cinemaName = cinemaObj ? cinemaObj.name : "Acervo";
+                    const safeCinema = sanitizeHTML(cinemaName);
+                    const absoluteIndex = acervoFotos.indexOf(p);
+                    const snippet = getSnippet(p.desc, query);
+                    
+                    html += `
+                        <div onclick="closeSearchModal(); openAcervoModal('${p.cinemaId}'); showAcervoImage(${absoluteIndex});" class="search-item border border-transparent rounded-xl p-3 hover:bg-white/5 hover:border-white/10 transition-all cursor-pointer flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-white/10 bg-zinc-950">
+                                <img src="${p.url}" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="flex-grow min-w-0">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-serif font-black text-sm uppercase text-white leading-none truncate">${safeTitle}</span>
+                                    <span class="bg-zinc-800 text-zinc-400 font-mono text-[7px] font-bold uppercase px-1 rounded shrink-0">${p.year}</span>
+                                </div>
+                                <span class="block text-[10px] text-gray-400 font-sans font-semibold mt-1 truncate">📸 ${safeCinema}</span>
+                                <p class="text-[9px] text-gray-500 font-sans font-medium mt-1 truncate italic">"${snippet}"</p>
+                            </div>
+                            <span class="text-zinc-600 font-mono text-xs leading-none shrink-0">Foto →</span>
+                        </div>
+                    `;
+                });
+                
+                html += `
+                        </div>
+                    </div>
+                `;
+            }
+            
+            resultsContainer.innerHTML = html;
+        }
+
+        function setSearchValue(val) {
+            const input = document.getElementById('search-input');
+            input.value = val;
+            handleSearch(val);
+            input.focus();
+        }
+
+        function getSnippet(text, query) {
+            if (!text) return '';
+            const normalizedText = text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            const normalizedQuery = query.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            
+            const index = normalizedText.indexOf(normalizedQuery);
+            if (index === -1) {
+                return text.substring(0, 75) + '...';
+            }
+            
+            const start = Math.max(0, index - 25);
+            const end = Math.min(text.length, index + query.length + 35);
+            
+            let snippet = text.substring(start, end);
+            if (start > 0) snippet = '...' + snippet;
+            if (end < text.length) snippet = snippet + '...';
+            
+            return snippet;
+        }
+
+        function updateSearchResultHighlight(items) {
+            items.forEach((item, idx) => {
+                if (idx === selectedSearchResultIndex) {
+                    item.classList.add('bg-white/10', 'border-brand-yellow/30', 'text-brand-yellow');
+                    item.classList.remove('border-transparent');
+                    item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                } else {
+                    item.classList.remove('bg-white/10', 'border-brand-yellow/30', 'text-brand-yellow');
+                    item.classList.add('border-transparent');
+                }
+            });
+        }
+
+        // Fechar modal no ESC e cliques fora do frame, gerenciar atalhos
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeAcervoModal();
+                closeSearchModal();
+            }
+            
+            // Atalho Ctrl + K ou Cmd + K
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
+                e.preventDefault();
+                const modal = document.getElementById('search-modal');
+                if (modal.classList.contains('opacity-0')) {
+                    openSearchModal();
+                } else {
+                    closeSearchModal();
+                }
+            }
+            
+            // Atalho "/" fora de inputs
+            if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+                openSearchModal();
+            }
+        });
+
+        // INIT LOADINGS
+        window.addEventListener('DOMContentLoaded', () => {
+            renderDirectory();
+            selectCinema('marquise');
+            loadMemories();
+            
+            // Adicionar evento para fechar modal de acervo ao clicar fora dele
+            const acervoModalEl = document.getElementById('acervo-modal');
+            if (acervoModalEl) {
+                acervoModalEl.addEventListener('click', (e) => {
+                    if (e.target.id === 'acervo-modal') {
+                        closeAcervoModal();
+                    }
+                });
+            }
+
+            // Adicionar evento para fechar modal de busca ao clicar fora dele
+            const searchModalEl = document.getElementById('search-modal');
+            if (searchModalEl) {
+                searchModalEl.addEventListener('click', (e) => {
+                    if (e.target.id === 'search-modal') {
+                        closeSearchModal();
+                    }
+                });
+            }
+
+            // Configurar navegação via teclado no campo de busca
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                searchInput.addEventListener('keydown', (e) => {
+                    const items = document.querySelectorAll('.search-item');
+                    if (items.length === 0) return;
+
+                    if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        selectedSearchResultIndex = (selectedSearchResultIndex + 1) % items.length;
+                        updateSearchResultHighlight(items);
+                    } else if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        selectedSearchResultIndex = (selectedSearchResultIndex - 1 + items.length) % items.length;
+                        updateSearchResultHighlight(items);
+                    } else if (e.key === 'Enter') {
+                        e.preventDefault();
+                        if (selectedSearchResultIndex >= 0 && selectedSearchResultIndex < items.length) {
+                            items[selectedSearchResultIndex].click();
+                        }
+                    }
+                });
+            }
+
+            showToast('Bem-vindo ao Cinema Entre Ruas. O cinema de calçada vive.', 'info');
+        });
+    </script>
+</body>
+</html>
